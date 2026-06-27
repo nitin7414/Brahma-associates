@@ -484,6 +484,8 @@ const styles = StyleSheet.create({
   logoMain: {
     width: 120,
     height: 120,
+    borderRadius: 60,
+    overflow: 'hidden',
     alignSelf: 'center',
     marginBottom: Spacing.two,
   },
