@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "building-native-ui": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/expo/skills/building-native-ui/SKILL.md",
+      "computedHash": "cd399ab81b3aaf6b682f7c91adb34eaa27c892652b42ecd210890a1ec1151f7e"
+    },
+    "expo-api-routes": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/expo/skills/expo-api-routes/SKILL.md",
+      "computedHash": "fdbed647df0b7882d3ea407ac08aa85df5c8abb945fe2879ce16293737b39ad3"
+    },
+    "expo-ui": {
+      "source": "expo/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/expo/skills/expo-ui/SKILL.md",
+      "computedHash": "39c617d5aff2e0123caa35c13991e2c6d33ea3dc154b432972fb6ecbc73c2434"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "93f53fd1c0352d3d7ec17b8f73d7351bf76f4821e55d123c9d2abc2c53ba48e4"
+    },
+    "react-native-best-practices": {
+      "source": "callstackincubator/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/react-native-best-practices/SKILL.md",
+      "computedHash": "9583e7bb38bfc018ff2252a6649a569cff185f01894e24b015f5adcd63ed04e5"
+    },
+    "ui-ux-pro-max": {
+      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "computedHash": "655fffc45cc2e1ba686a579bf293999dfe9d94d1f16d99028e03b3a1baf47324"
+    }
+  }
+}
