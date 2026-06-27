@@ -77,3 +77,9 @@ export const staffUsers = sqliteTable('staff_users', {
   createdAt: integer('created_at').notNull(),
   updatedAt: integer('updated_at').notNull(),
 });
+
+export const deletedRecords = sqliteTable('deleted_records', {
+  id: text('id').primaryKey(),
+  entityType: text('entity_type').notNull(), // 'transaction'
+  deletedAt: integer('deleted_at').notNull(),
+});

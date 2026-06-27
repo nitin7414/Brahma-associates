@@ -1,5 +1,5 @@
 import { db } from '@/db/client';
-import { stockItems, customers, transactions, transactionItems, staffUsers } from '@/db/schema';
+import { stockItems, customers, transactions, transactionItems, staffUsers, deletedRecords } from '@/db/schema';
 import { eq, inArray } from 'drizzle-orm';
 import { useSettingsStore } from '@/stores/useSettingsStore';
 import { useStockStore } from '@/stores/useStockStore';
@@ -39,14 +39,14 @@ export async function syncWithCloud(): Promise<SyncResult> {
       };
     });
 
-    // Get all active transaction IDs to help the server find voided ones
-    const activeTx = db.select({ id: transactions.id }).from(transactions).all();
-    const activeTransactionIds = activeTx.map((t) => t.id);
+    // Fetch local tombstones of deleted transactions
+    const localDeleted = db.select().from(deletedRecords).all();
+    const deletedTransactionIds = localDeleted.map((d) => d.id);
 
     // 2. Build sync payload
     const payload = {
       lastSyncTimestamp: settings.lastSyncTimestamp || 0,
-      activeTransactionIds,
+      deletedTransactionIds,
       changes: {
         staffUsers: unsyncedStaff,
         stockItems: unsyncedStock,
@@ -60,6 +60,7 @@ export async function syncWithCloud(): Promise<SyncResult> {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.EXPO_PUBLIC_SYNC_API_KEY || ''}`,
       },
       body: JSON.stringify(payload),
     });
@@ -70,7 +71,7 @@ export async function syncWithCloud(): Promise<SyncResult> {
     }
 
     const data = await response.json();
-    const { serverTimestamp, updates, deletedTransactionIds } = data;
+    const { serverTimestamp, updates, deletedTransactionIds: serverDeletedTransactionIds } = data;
 
     let addedCount = 0;
     let updatedCount = 0;
@@ -79,15 +80,15 @@ export async function syncWithCloud(): Promise<SyncResult> {
     // 4. Perform atomic local database update
     await db.transaction(async (tx) => {
       // A. Apply Server Deletions
-      if (deletedTransactionIds && deletedTransactionIds.length > 0) {
+      if (serverDeletedTransactionIds && serverDeletedTransactionIds.length > 0) {
         // Delete transaction items first
         tx.delete(transactionItems)
-          .where(inArray(transactionItems.transactionId, deletedTransactionIds))
+          .where(inArray(transactionItems.transactionId, serverDeletedTransactionIds))
           .run();
         
         // Delete transactions
         const deleteRes = tx.delete(transactions)
-          .where(inArray(transactions.id, deletedTransactionIds))
+          .where(inArray(transactions.id, serverDeletedTransactionIds))
           .run();
         
         deletedCount += deleteRes.changes;
@@ -184,6 +185,13 @@ export async function syncWithCloud(): Promise<SyncResult> {
         tx.update(transactions)
           .set({ isSynced: 1 })
           .where(inArray(transactions.id, unsyncedTx.map((t) => t.id)))
+          .run();
+      }
+
+      // Clear local uploaded tombstones
+      if (localDeleted.length > 0) {
+        tx.delete(deletedRecords)
+          .where(inArray(deletedRecords.id, localDeleted.map((d) => d.id)))
           .run();
       }
     });

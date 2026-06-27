@@ -118,6 +118,15 @@ export async function initializeDatabase() {
         );
       `);
 
+      // Create deleted_records table
+      expoDb.execSync(`
+        CREATE TABLE IF NOT EXISTS deleted_records (
+          id TEXT PRIMARY KEY,
+          entity_type TEXT NOT NULL,
+          deleted_at INTEGER NOT NULL
+        );
+      `);
+
       console.log('Database tables created successfully. Seeding initial catalog...');
       await seedInitialCatalog();
       console.log('Database seeding completed!');

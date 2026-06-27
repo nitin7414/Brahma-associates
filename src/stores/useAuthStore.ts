@@ -53,14 +53,33 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   login: async (pin: string) => {
     try {
-      const hashed = sha256(pin);
       const users = db.select().from(staffUsers).where(eq(staffUsers.isActive, 1)).all();
-      const matchedUser = users.find(u => u.pinHash === hashed);
+      
+      // 1. Try matching with salted PIN hash (sha256(pin + id))
+      let matchedUser = users.find(u => u.pinHash === sha256(pin + u.id));
       
       if (matchedUser) {
         set({ currentUser: matchedUser as User });
         return true;
       }
+
+      // 2. Try fallback matching with unsalted PIN hash (for backward compatibility)
+      const unsaltedHash = sha256(pin);
+      matchedUser = users.find(u => u.pinHash === unsaltedHash);
+      if (matchedUser) {
+        // Auto-upgrade this user's pin hash to salted version
+        const saltedHash = sha256(pin + matchedUser.id);
+        await db.update(staffUsers)
+          .set({ pinHash: saltedHash, isSynced: 0, updatedAt: Date.now() })
+          .where(eq(staffUsers.id, matchedUser.id))
+          .run();
+        
+        // Update local memory reference
+        matchedUser.pinHash = saltedHash;
+        set({ currentUser: matchedUser as User });
+        return true;
+      }
+      
       return false;
     } catch (error) {
       console.error('Login error:', error);
@@ -74,8 +93,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   createOwner: async (name: string, pin: string) => {
     try {
-      const hashed = sha256(pin);
       const ownerId = `staff_${Date.now()}`;
+      const hashed = sha256(pin + ownerId);
       const now = Date.now();
       
       const newOwner = {
@@ -101,8 +120,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
   addStaff: async (name: string, pin: string, role: 'owner' | 'staff') => {
     try {
-      const hashed = sha256(pin);
       const staffId = `staff_${Date.now()}`;
+      const hashed = sha256(pin + staffId);
       const now = Date.now();
 
       const newStaff = {

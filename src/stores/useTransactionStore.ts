@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { db } from '@/db/client';
-import { transactions, transactionItems, stockItems, customers } from '@/db/schema';
+import { transactions, transactionItems, stockItems, customers, deletedRecords } from '@/db/schema';
 import { eq, desc } from 'drizzle-orm';
 import { useStockStore } from './useStockStore';
 import { useCustomerStore } from './useCustomerStore';
@@ -285,13 +285,14 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
           }
         }
 
-        // 3. Mark transaction as voided in cloud sync by updating status/setting isSynced=0 (or delete locally, and server will delete it)
-        // Since we delete locally, the client will push the deletion or the sync server will delete transactions that no longer exist.
-        // For standard sync, we can soft-delete transactions as well by setting a status, or delete it and sync.
-        // Let's delete it locally and we can push the transaction deletion as a synced event. Or simple: we delete the row locally,
-        // and during sync, client sends list of active transaction IDs so server deletes any orphaned transaction in Neon. This is clean and automatic!
+        // 3. Delete locally and log deletion tombstone to sync up
         await tx.delete(transactionItems).where(eq(transactionItems.transactionId, id)).run();
         await tx.delete(transactions).where(eq(transactions.id, id)).run();
+        await tx.insert(deletedRecords).values({
+          id,
+          entityType: 'transaction',
+          deletedAt: now,
+        }).run();
       });
 
       await get().loadTransactions();
