@@ -8,7 +8,8 @@
     "scheme": "brahmaassociates",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.brahmaassociates.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -18,7 +19,7 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.Brahma_associates"
+      "package": "com.brahmaassociates.app"
     },
     "web": {
       "output": "static",
@@ -41,6 +42,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "661f22f2-aba4-4669-8013-d5e1ca94f977"
+      }
     }
   }
 }

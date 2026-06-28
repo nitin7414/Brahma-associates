@@ -1,6 +1,6 @@
 import { db } from '@/db/client';
 import { stockItems, customers, transactions, transactionItems, staffUsers, deletedRecords } from '@/db/schema';
-import { eq, inArray } from 'drizzle-orm';
+import { eq, inArray, and } from 'drizzle-orm';
 import { useSettingsStore } from '@/stores/useSettingsStore';
 import { useStockStore } from '@/stores/useStockStore';
 import { useCustomerStore } from '@/stores/useCustomerStore';
@@ -22,6 +22,24 @@ export async function syncWithCloud(): Promise<SyncResult> {
 
     if (!backendUrl) {
       return { success: false, error: 'Cloud Sync URL is not configured in settings.' };
+    }
+
+    // Connectivity guard: probe the server before attempting full sync
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s to allow Neon database cold start
+      const probe = await fetch(`${backendUrl}/health`, { method: 'GET', signal: controller.signal });
+      clearTimeout(timeoutId);
+      
+      if (!probe.ok) {
+        console.warn(`[syncWithCloud] Connectivity probe returned non-ok status: ${probe.status}`);
+      }
+    } catch (probeError: any) {
+      console.error('[syncWithCloud] Connectivity probe failed:', probeError);
+      const msg = probeError?.message?.toLowerCase() || '';
+      if (msg.includes('network') || msg.includes('fetch') || msg.includes('timeout') || msg.includes('abort')) {
+        return { success: false, error: 'No internet connection or server is unreachable. Please check your network and try again.' };
+      }
     }
 
     // 1. Fetch unsynced local changes (isSynced = 0)
@@ -162,30 +180,38 @@ export async function syncWithCloud(): Promise<SyncResult> {
         }
       }
 
-      // F. Mark locally pushed records as synced (isSynced = 1)
+      // F. Mark locally pushed records as synced (isSynced = 1) only if they haven't been updated in the meantime
       if (unsyncedStaff.length > 0) {
-        tx.update(staffUsers)
-          .set({ isSynced: 1 })
-          .where(inArray(staffUsers.id, unsyncedStaff.map((u) => u.id)))
-          .run();
+        for (const u of unsyncedStaff) {
+          tx.update(staffUsers)
+            .set({ isSynced: 1 })
+            .where(and(eq(staffUsers.id, u.id), eq(staffUsers.updatedAt, u.updatedAt)))
+            .run();
+        }
       }
       if (unsyncedStock.length > 0) {
-        tx.update(stockItems)
-          .set({ isSynced: 1 })
-          .where(inArray(stockItems.id, unsyncedStock.map((s) => s.id)))
-          .run();
+        for (const s of unsyncedStock) {
+          tx.update(stockItems)
+            .set({ isSynced: 1 })
+            .where(and(eq(stockItems.id, s.id), eq(stockItems.updatedAt, s.updatedAt)))
+            .run();
+        }
       }
       if (unsyncedCustomers.length > 0) {
-        tx.update(customers)
-          .set({ isSynced: 1 })
-          .where(inArray(customers.id, unsyncedCustomers.map((c) => c.id)))
-          .run();
+        for (const c of unsyncedCustomers) {
+          tx.update(customers)
+            .set({ isSynced: 1 })
+            .where(and(eq(customers.id, c.id), eq(customers.updatedAt, c.updatedAt)))
+            .run();
+        }
       }
       if (unsyncedTx.length > 0) {
-        tx.update(transactions)
-          .set({ isSynced: 1 })
-          .where(inArray(transactions.id, unsyncedTx.map((t) => t.id)))
-          .run();
+        for (const t of unsyncedTx) {
+          tx.update(transactions)
+            .set({ isSynced: 1 })
+            .where(and(eq(transactions.id, t.id), eq(transactions.createdAt, t.createdAt)))
+            .run();
+        }
       }
 
       // Clear local uploaded tombstones

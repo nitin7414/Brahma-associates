@@ -33,19 +33,16 @@ export default function SearchScreen() {
   }>({ stock: [], customers: [], transactions: [] });
   const [searching, setSearching] = useState(false);
 
-  // Debounced search logic
+  // Real-time search logic
   useEffect(() => {
     if (!query.trim()) {
       setResults({ stock: [], customers: [], transactions: [] });
+      setSearching(false);
       return;
     }
 
     setSearching(true);
-    const delayDebounce = setTimeout(() => {
-      performSearch(query.trim());
-    }, 300);
-
-    return () => clearTimeout(delayDebounce);
+    performSearch(query.trim());
   }, [query]);
 
   const performSearch = async (searchTerm: string) => {
@@ -273,7 +270,7 @@ export default function SearchScreen() {
                             Invoice: {tx.id} • {tx.type.toUpperCase()}
                           </ThemedText>
                         </View>
-                        <ThemedText style={styles.txValue}>₹{tx.grandTotal.toFixed(0)}</ThemedText>
+                        <ThemedText style={[styles.txValue, { color: theme.primary }]}>₹{tx.grandTotal.toFixed(0)}</ThemedText>
                       </View>
                     </Card>
                   );
@@ -351,6 +348,5 @@ const styles = StyleSheet.create({
   },
   txValue: {
     fontWeight: '800',
-    color: '#2563EB',
   },
 });

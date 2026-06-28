@@ -476,17 +476,23 @@ app.post('/api/sync', authenticateSync, async (req, res) => {
   }
 });
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', serverTimestamp: Date.now() });
+// Health check endpoint (also pings database to wake up Neon compute and verify connection)
+app.get('/health', async (req, res) => {
+  try {
+    await db.execute(sql`SELECT 1;`);
+    res.json({ status: 'ok', database: 'connected', serverTimestamp: Date.now() });
+  } catch (error: any) {
+    console.error('Health check database query failed:', error);
+    res.status(500).json({ status: 'error', database: 'disconnected', details: error.message });
+  }
 });
 
 // Run server initialization only if not on Vercel or explicitly requested
 if (!process.env.VERCEL || process.env.RUN_DB_INIT === 'true') {
   initializeDatabase().then(() => {
     if (!process.env.VERCEL) {
-      app.listen(PORT, () => {
-        console.log(`Brahma Associates sync server is running on http://localhost:${PORT}`);
+      app.listen(Number(PORT), '0.0.0.0', () => {
+        console.log(`Brahma Associates sync server is running on port ${PORT} (bound to 0.0.0.0, network accessible)`);
       });
     }
   });

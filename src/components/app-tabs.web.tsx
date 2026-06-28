@@ -77,7 +77,7 @@ export function CustomTabList(props: TabListProps) {
           onPress={() => logout()} 
           style={styles.logoutPressable}
         >
-          <ThemedText type="link" style={{ color: '#EF4444' }}>Logout</ThemedText>
+          <ThemedText type="link" style={{ color: colors.danger }}>Logout</ThemedText>
         </Pressable>
       </ThemedView>
     </View>

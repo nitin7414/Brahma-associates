@@ -21,7 +21,7 @@ import { useAuthStore } from '@/stores/useAuthStore';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Button, Input, Card, Badge } from '@/components/ui/primitives';
-import { Spacing } from '@/constants/theme';
+import { Spacing, ListPaddingBottom } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function NewTransactionScreen() {
@@ -310,7 +310,7 @@ export default function NewTransactionScreen() {
               style={[
                 styles.typeChip,
                 { backgroundColor: theme.backgroundElement },
-                type === t && styles.typeChipActive,
+                type === t && { backgroundColor: theme.primary },
               ]}
             >
               <Text 
@@ -359,7 +359,7 @@ export default function NewTransactionScreen() {
                           router.push('/customers/edit');
                         }}
                       >
-                        <ThemedText type="small" style={{ color: '#2563EB', fontWeight: '700' }}>
+                        <ThemedText type="small" style={{ color: theme.primary, fontWeight: '700' }}>
                           + Add New Customer "{customerSearch}"
                         </ThemedText>
                       </TouchableOpacity>
@@ -533,14 +533,14 @@ export default function NewTransactionScreen() {
 
           <View style={styles.calcRow}>
             <ThemedText type="small" themeColor="textSecondary">GST Tax Amount (₹)</ThemedText>
-            <ThemedText style={[styles.calcValue, { color: '#F59E0B' }]}>₹{taxAmount.toFixed(2)}</ThemedText>
+            <ThemedText style={[styles.calcValue, { color: theme.warning }]}>₹{taxAmount.toFixed(2)}</ThemedText>
           </View>
 
           <View style={[styles.divider, { backgroundColor: theme.backgroundSelected }]} />
 
           <View style={styles.calcRow}>
             <ThemedText type="subtitle" style={{ fontSize: 16 }}>Total (with GST added)</ThemedText>
-            <ThemedText type="subtitle" style={{ color: '#2563EB', fontSize: 20 }}>
+            <ThemedText type="subtitle" style={{ color: theme.primary, fontSize: 20 }}>
               ₹{grandTotal.toFixed(2)}
             </ThemedText>
           </View>
@@ -576,7 +576,7 @@ export default function NewTransactionScreen() {
                     style={[
                       styles.modeChip,
                       { backgroundColor: theme.backgroundElement },
-                      paymentMode === mode && styles.modeChipActive,
+                      paymentMode === mode && { backgroundColor: theme.success },
                     ]}
                   >
                     <Text 
@@ -634,7 +634,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     padding: Spacing.four,
-    paddingBottom: 40,
+    paddingBottom: ListPaddingBottom,
   },
   pageTitle: {
     marginBottom: Spacing.three,
@@ -651,9 +651,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 16,
   },
-  typeChipActive: {
-    backgroundColor: '#2563EB',
-  },
+
   typeChipText: {
     fontSize: 12,
     fontWeight: '600',
@@ -758,9 +756,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginRight: 6,
   },
-  modeChipActive: {
-    backgroundColor: '#10B981',
-  },
+
   modeChipText: {
     fontSize: 12,
     fontWeight: '600',

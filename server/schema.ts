@@ -1,4 +1,4 @@
-import { pgTable, text, integer, doublePrecision, bigint } from 'drizzle-orm/pg-core';
+import { pgTable, text, integer, doublePrecision, bigint, index } from 'drizzle-orm/pg-core';
 
 export const staffUsers = pgTable('staff_users', {
   id: text('id').primaryKey(),
@@ -8,7 +8,9 @@ export const staffUsers = pgTable('staff_users', {
   isActive: integer('is_active').notNull().default(1),
   createdAt: bigint('created_at', { mode: 'number' }).notNull(),
   updatedAt: bigint('updated_at', { mode: 'number' }).notNull(),
-});
+}, (table) => ({
+  updatedAtIdx: index('staff_users_updated_at_idx').on(table.updatedAt),
+}));
 
 export const stockItems = pgTable('stock_items', {
   id: text('id').primaryKey(),
@@ -26,7 +28,9 @@ export const stockItems = pgTable('stock_items', {
   isActive: integer('is_active').notNull().default(1),
   createdAt: bigint('created_at', { mode: 'number' }).notNull(),
   updatedAt: bigint('updated_at', { mode: 'number' }).notNull(),
-});
+}, (table) => ({
+  updatedAtIdx: index('stock_items_updated_at_idx').on(table.updatedAt),
+}));
 
 export const customers = pgTable('customers', {
   id: text('id').primaryKey(),
@@ -46,7 +50,9 @@ export const customers = pgTable('customers', {
   isActive: integer('is_active').notNull().default(1),
   createdAt: bigint('created_at', { mode: 'number' }).notNull(),
   updatedAt: bigint('updated_at', { mode: 'number' }).notNull(),
-});
+}, (table) => ({
+  updatedAtIdx: index('customers_updated_at_idx').on(table.updatedAt),
+}));
 
 export const transactions = pgTable('transactions', {
   id: text('id').primaryKey(),
@@ -63,7 +69,10 @@ export const transactions = pgTable('transactions', {
   createdByStaffId: text('created_by_staff_id'),
   notes: text('notes'),
   createdAt: bigint('created_at', { mode: 'number' }).notNull(),
-});
+}, (table) => ({
+  createdAtIdx: index('transactions_created_at_idx').on(table.createdAt),
+  customerIdIdx: index('transactions_customer_id_idx').on(table.customerId),
+}));
 
 export const transactionItems = pgTable('transaction_items', {
   id: text('id').primaryKey(),
@@ -72,10 +81,15 @@ export const transactionItems = pgTable('transaction_items', {
   quantity: integer('quantity').notNull(),
   unitPrice: doublePrecision('unit_price').notNull(),
   lineTotal: doublePrecision('line_total').notNull(),
-});
+}, (table) => ({
+  transactionIdIdx: index('transaction_items_transaction_id_idx').on(table.transactionId),
+  stockItemIdIdx: index('transaction_items_stock_item_id_idx').on(table.stockItemId),
+}));
 
 export const deletedRecords = pgTable('deleted_records', {
   id: text('id').primaryKey(),
   entityType: text('entity_type').notNull(), // 'transaction'
   deletedAt: bigint('deleted_at', { mode: 'number' }).notNull(),
-});
+}, (table) => ({
+  deletedAtIdx: index('deleted_records_deleted_at_idx').on(table.deletedAt),
+}));

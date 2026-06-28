@@ -16,7 +16,7 @@ import * as Haptics from 'expo-haptics';
 import { useCustomerStore, Customer } from '@/stores/useCustomerStore';
 import { ThemedText } from '@/components/themed-text';
 import { Card, Badge } from '@/components/ui/primitives';
-import { Spacing } from '@/constants/theme';
+import { Spacing, FabBottom, ListPaddingBottom } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function CustomerListScreen() {
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     padding: Spacing.three,
-    paddingBottom: 88, // FAB padding
+    paddingBottom: ListPaddingBottom, // FAB padding
   },
   custCard: {
     borderLeftWidth: 4,
@@ -362,7 +362,7 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: 'absolute',
-    bottom: Spacing.three,
+    bottom: FabBottom,
     right: Spacing.three,
     width: 56,
     height: 56,

@@ -21,7 +21,7 @@ import { useStockStore } from '@/stores/useStockStore';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { ThemedText } from '@/components/themed-text';
 import { Button, Input } from '@/components/ui/primitives';
-import { Spacing } from '@/constants/theme';
+import { Spacing, ListPaddingBottom } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 const CATEGORIES = [
@@ -524,7 +524,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     padding: Spacing.four,
-    paddingBottom: 40,
+    paddingBottom: ListPaddingBottom,
   },
   pageTitle: {
     marginBottom: Spacing.four,

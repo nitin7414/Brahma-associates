@@ -16,7 +16,7 @@ import { useStockStore, StockItem } from '@/stores/useStockStore';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { ThemedText } from '@/components/themed-text';
 import { Card, Badge } from '@/components/ui/primitives';
-import { Spacing } from '@/constants/theme';
+import { Spacing, FabBottom, ListPaddingBottom } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 const CATEGORIES = [
@@ -404,7 +404,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     padding: Spacing.three,
-    paddingBottom: 88, // FAB offset
+    paddingBottom: ListPaddingBottom, // FAB offset
   },
   itemCard: {
     borderLeftWidth: 4,
@@ -506,7 +506,7 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: 'absolute',
-    bottom: Spacing.three,
+    bottom: FabBottom,
     right: Spacing.three,
     width: 56,
     height: 56,

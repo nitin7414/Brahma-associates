@@ -1,4 +1,3 @@
-import { db } from './client';
 import { stockItems } from './schema';
 
 interface CatalogItem {
@@ -54,7 +53,7 @@ const catalog: CatalogItem[] = [
   { category: 'spare_part', brand: null, capacityLabel: null, variant: 'Transformer', name: 'Spare Part Transformer' },
 ];
 
-export async function seedInitialCatalog() {
+export async function seedInitialCatalog(db: any) {
   const now = Date.now();
   const valuesToInsert = catalog.map((item) => {
     // Generate clean deterministic slug ID

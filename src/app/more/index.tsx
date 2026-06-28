@@ -166,9 +166,11 @@ export default function MoreMenuScreen() {
                 if (item.restricted) {
                   Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
                   Alert.alert('Permission Restricted', 'Only the business Owner account can access this management screen.');
-                } else {
+                } else if (item.action) {
                   Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
                   item.action();
+                } else {
+                  console.warn('[SettingsMenu] No action defined for:', item.title);
                 }
               }}
               style={[

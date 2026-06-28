@@ -74,20 +74,20 @@ export default function LoginScreen() {
     }
   };
 
-  const handlePinSubmit = () => {
+  const handlePinSubmit = async () => {
     if (pin.length < 4) {
       triggerShake();
       setErrorMsg('PIN must be at least 4 digits');
       return;
     }
-    checkPin(pin);
-    setTimeout(() => {
-      if (!useAuthStore.getState().currentUser) {
-        triggerShake();
-        setPin('');
-        setErrorMsg('Invalid PIN. Please try again.');
-      }
-    }, 200);
+    const success = await login(pin);
+    if (success) {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    } else {
+      triggerShake();
+      setPin('');
+      setErrorMsg('Invalid PIN. Please try again.');
+    }
   };
 
   const handleDelete = () => {

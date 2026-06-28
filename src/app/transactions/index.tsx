@@ -19,7 +19,7 @@ import { useTransactionStore, Transaction } from '@/stores/useTransactionStore';
 import { useCustomerStore } from '@/stores/useCustomerStore';
 import { ThemedText } from '@/components/themed-text';
 import { Card, Badge } from '@/components/ui/primitives';
-import { Spacing } from '@/constants/theme';
+import { Spacing, FabBottom, ListPaddingBottom } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 import { format, isToday, isYesterday, startOfWeek, startOfMonth, isAfter } from 'date-fns';
 
@@ -307,7 +307,7 @@ export default function TransactionListScreen() {
               size={18}
               tintColor={(showFilters || hasActiveFilters) ? '#FFFFFF' : theme.text}
             />
-            {hasActiveFilters && !showFilters && <View style={styles.activeDotBadge} />}
+            {hasActiveFilters && !showFilters && <View style={[styles.activeDotBadge, { backgroundColor: theme.success, borderColor: theme.backgroundElement }]} />}
           </TouchableOpacity>
         </View>
 
@@ -554,9 +554,7 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#10B981',
     borderWidth: 1,
-    borderColor: '#FFFFFF',
   },
   filterPanel: {
     borderRadius: 14,
@@ -624,7 +622,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     padding: Spacing.three,
-    paddingBottom: 88, // FAB offset
+    paddingBottom: ListPaddingBottom, // FAB offset
   },
   txCard: {
     paddingVertical: Spacing.three,
@@ -692,7 +690,7 @@ const styles = StyleSheet.create({
   },
   fab: {
     position: 'absolute',
-    bottom: Spacing.three,
+    bottom: FabBottom,
     right: Spacing.three,
     width: 56,
     height: 56,

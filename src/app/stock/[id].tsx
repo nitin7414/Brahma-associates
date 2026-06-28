@@ -114,11 +114,11 @@ export default function StockDetailScreen() {
 
   const getTransactionTypeLabel = (type: string) => {
     switch (type) {
-      case 'sale': return { label: 'Sale', color: '#EF4444', icon: 'arrow.down.right.circle.fill' };
-      case 'purchase': return { label: 'Purchase', color: '#10B981', icon: 'arrow.up.left.circle.fill' };
-      case 'return_in': return { label: 'Customer Return', color: '#3B82F6', icon: 'arrow.left.circle.fill' };
-      case 'return_out': return { label: 'Supplier Return', color: '#64748B', icon: 'arrow.right.circle.fill' };
-      default: return { label: type, color: '#64748B', icon: 'circle.fill' };
+      case 'sale': return { label: 'Sale', color: theme.danger, icon: 'arrow.down.right.circle.fill' };
+      case 'purchase': return { label: 'Purchase', color: theme.success, icon: 'arrow.up.left.circle.fill' };
+      case 'return_in': return { label: 'Customer Return', color: theme.primary, icon: 'arrow.left.circle.fill' };
+      case 'return_out': return { label: 'Supplier Return', color: theme.textSecondary, icon: 'arrow.right.circle.fill' };
+      default: return { label: type, color: theme.textSecondary, icon: 'circle.fill' };
     }
   };
 
@@ -173,8 +173,8 @@ export default function StockDetailScreen() {
               <ThemedText 
                 style={[
                   styles.statNumber,
-                  isOutOfStock && { color: '#EF4444' },
-                  !isOutOfStock && isLowStock && { color: '#F59E0B' },
+                  isOutOfStock && { color: theme.danger },
+                  !isOutOfStock && isLowStock && { color: theme.warning },
                 ]}
               >
                 {item.quantity} units
@@ -193,18 +193,18 @@ export default function StockDetailScreen() {
           <View style={styles.priceGrid}>
             <View style={styles.priceBlock}>
               <ThemedText type="small" themeColor="textSecondary">Selling Price</ThemedText>
-              <ThemedText style={styles.priceNumber}>₹{sell.toFixed(2)}</ThemedText>
+              <ThemedText style={[styles.priceNumber, { color: theme.primary }]}>₹{sell.toFixed(2)}</ThemedText>
             </View>
             {isOwner && (
               <View style={styles.priceBlock}>
                 <ThemedText type="small" themeColor="textSecondary">Cost Price</ThemedText>
-                <ThemedText style={styles.priceNumber}>₹{cost.toFixed(2)}</ThemedText>
+                <ThemedText style={[styles.priceNumber, { color: theme.primary }]}>₹{cost.toFixed(2)}</ThemedText>
               </View>
             )}
           </View>
           
           {isOwner && profit > 0 && (
-            <View style={[styles.marginRow, { backgroundColor: '#10B9811A' }]}>
+            <View style={[styles.marginRow, { backgroundColor: theme.success + '1A' }]}>
             </View>
           )}
         </Card>
@@ -284,7 +284,7 @@ export default function StockDetailScreen() {
                       <ThemedText 
                         style={[
                           styles.timelineQty,
-                          { color: isAddition ? '#10B981' : '#EF4444' }
+                          { color: isAddition ? theme.success : theme.danger }
                         ]}
                       >
                         {sign}{tx.quantity} units
@@ -401,7 +401,6 @@ const styles = StyleSheet.create({
   priceNumber: {
     fontSize: 20,
     fontWeight: '800',
-    color: '#2563EB',
     marginTop: 4,
   },
   marginRow: {

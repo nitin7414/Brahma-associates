@@ -212,7 +212,7 @@ export default function DashboardScreen() {
         {/* Backup Reminder Banner */}
         {needsBackupReminder && (
           <TouchableOpacity
-            style={[styles.reminderBanner, { backgroundColor: '#F59E0B12', borderColor: '#F59E0B' }]}
+            style={[styles.reminderBanner, { backgroundColor: theme.warning + '12', borderColor: theme.warning }]}
             onPress={() => router.push('/more/backup')}
             activeOpacity={0.8}
           >
@@ -220,9 +220,9 @@ export default function DashboardScreen() {
               <SymbolView
                 name={{ ios: 'exclamationmark.triangle.fill', android: 'warning', web: 'warning' }}
                 size={18}
-                tintColor="#F59E0B"
+                tintColor={theme.warning}
               />
-              <ThemedText style={[styles.reminderTitle, { color: '#F59E0B' }]}>
+              <ThemedText style={[styles.reminderTitle, { color: theme.warning }]}>
                 Data Safety Reminder
               </ThemedText>
             </View>
@@ -267,7 +267,7 @@ export default function DashboardScreen() {
           <View style={styles.metricsGrid}>
             <View style={[styles.metricBlock, { backgroundColor: theme.background, borderColor: theme.backgroundSelected }]}>
               <View style={[styles.metricIconWrap, { backgroundColor: theme.primary + '15' }]}>
-                <SymbolView name="inventory" size={16} tintColor={theme.primary} />
+                <SymbolView name={{ ios: 'shippingbox.fill', android: 'inventory', web: 'inventory' }} size={16} tintColor={theme.primary} />
               </View>
               <ThemedText style={styles.metricValue}>{totalSKUs}</ThemedText>
               <ThemedText type="small" themeColor="textSecondary" style={styles.metricLabel}>Active SKUs</ThemedText>
@@ -275,7 +275,7 @@ export default function DashboardScreen() {
             
             <View style={[styles.metricBlock, { backgroundColor: theme.background, borderColor: theme.backgroundSelected }]}>
               <View style={[styles.metricIconWrap, { backgroundColor: theme.success + '15' }]}>
-                <SymbolView name="house.fill" size={16} tintColor={theme.success} />
+                <SymbolView name={{ ios: 'house.fill', android: 'home', web: 'home' }} size={16} tintColor={theme.success} />
               </View>
               <ThemedText style={styles.metricValue}>{totalUnits}</ThemedText>
               <ThemedText type="small" themeColor="textSecondary" style={styles.metricLabel}>Stock Units</ThemedText>
@@ -284,7 +284,7 @@ export default function DashboardScreen() {
             {isOwner && (
               <View style={[styles.metricBlock, { backgroundColor: theme.background, borderColor: theme.backgroundSelected }]}>
                 <View style={[styles.metricIconWrap, { backgroundColor: theme.warning + '15' }]}>
-                  <SymbolView name="rupee" size={16} tintColor={theme.warning} />
+                  <SymbolView name={{ ios: 'indianrupeesign.circle', android: 'payments', web: 'payments' }} size={16} tintColor={theme.warning} />
                 </View>
                 <ThemedText style={[styles.metricValue, { color: theme.primary }]}>
                   ₹{totalAssetValue >= 100000 ? `${(totalAssetValue / 100000).toFixed(2)}L` : totalAssetValue.toLocaleString('en-IN')}

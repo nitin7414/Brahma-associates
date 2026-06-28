@@ -14,7 +14,7 @@ export const Colors = {
     backgroundElement: '#FFFFFF',
     backgroundSelected: '#FFEAD2',
     textSecondary: '#64748B',
-    primary: '#3B82F6',
+    primary: '#2563EB',
     success: '#10B981',
     warning: '#F59E0B',
     danger: '#EF4444',
@@ -25,7 +25,7 @@ export const Colors = {
     backgroundElement: '#162032',
     backgroundSelected: '#3D2E20',
     textSecondary: '#94A3B8',
-    primary: '#3B82F6',
+    primary: '#60A5FA',
     success: '#34D399',
     warning: '#FBBF24',
     danger: '#F87171',
@@ -68,6 +68,18 @@ export const Spacing = {
   five: 32,
   six: 64,
 } as const;
+
+export const FabBottom = Platform.select({
+  ios: 120,
+  android: 110,
+  default: Spacing.three,
+});
+
+export const ListPaddingBottom = Platform.select({
+  ios: 190,
+  android: 180,
+  default: 88,
+});
 
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;

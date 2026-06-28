@@ -155,8 +155,8 @@ export default function ReportsScreen() {
 
   const getCategoryColor = (cat: string) => {
     switch (cat) {
-      case 'scale': return '#2563EB'; // Royal Blue
-      case 'loadcell': return '#10B981'; // Emerald
+      case 'scale': return theme.primary; // Royal Blue
+      case 'loadcell': return theme.success; // Emerald
       case 'pcb': return '#8B5CF6'; // Violet
       case 'display': return '#EC4899'; // Pink
       default: return '#64748B'; // Slate
@@ -172,7 +172,7 @@ export default function ReportsScreen() {
     return (
       <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
         <View style={styles.center}>
-          <ActivityIndicator size="large" color="#2563EB" />
+          <ActivityIndicator size="large" color={theme.primary} />
           <ThemedText style={{ marginTop: Spacing.two }}>Compiling report diagnostics...</ThemedText>
         </View>
       </SafeAreaView>
@@ -218,7 +218,7 @@ export default function ReportsScreen() {
                         styles.barFill,
                         {
                           height: barHeight,
-                          backgroundColor: isSelected ? '#2563EB' : theme.backgroundSelected,
+                          backgroundColor: isSelected ? theme.primary : theme.backgroundSelected,
                         },
                       ]}
                     />
@@ -227,7 +227,7 @@ export default function ReportsScreen() {
                     type="small" 
                     style={[
                       styles.barLabel,
-                      isSelected && { color: '#2563EB', fontWeight: 'bold' }
+                      isSelected && { color: theme.primary, fontWeight: 'bold' }
                     ]}
                   >
                     {d.label}
@@ -243,7 +243,7 @@ export default function ReportsScreen() {
               <ThemedText type="small" themeColor="textSecondary">
                 Sales Statement for {selectedBar.dateStr}:
               </ThemedText>
-              <ThemedText style={styles.tooltipRevenue}>
+              <ThemedText style={[styles.tooltipRevenue, { color: theme.primary }]}>
                 ₹{selectedBar.value.toLocaleString('en-IN')}
               </ThemedText>
             </View>
@@ -299,7 +299,7 @@ export default function ReportsScreen() {
               {topProducts.map((prod, idx) => (
                 <View key={prod.name} style={[styles.leaderboardItem, { borderBottomColor: theme.backgroundSelected }]}>
                   <View style={styles.rankCol}>
-                    <ThemedText style={styles.rankText}>#{idx + 1}</ThemedText>
+                    <ThemedText style={[styles.rankText, { color: theme.primary }]}>#{idx + 1}</ThemedText>
                   </View>
                   <View style={{ flex: 1 }}>
                     <ThemedText style={styles.prodName}>{prod.name}</ThemedText>
@@ -308,7 +308,7 @@ export default function ReportsScreen() {
                     </ThemedText>
                   </View>
                   <View style={{ alignItems: 'flex-end' }}>
-                    <ThemedText style={styles.prodRev}>₹{prod.revenue.toFixed(0)}</ThemedText>
+                    <ThemedText style={[styles.prodRev, { color: theme.success }]}>₹{prod.revenue.toFixed(0)}</ThemedText>
                     <Badge label={prod.category} variant="neutral" style={{ paddingVertical: 1, paddingHorizontal: 4, borderRadius: 3, marginTop: 2 }} />
                   </View>
                 </View>
@@ -395,7 +395,6 @@ const styles = StyleSheet.create({
   tooltipRevenue: {
     fontSize: 22,
     fontWeight: '900',
-    color: '#2563EB',
   },
   categoryCard: {
     padding: Spacing.three,
@@ -448,7 +447,6 @@ const styles = StyleSheet.create({
   rankText: {
     fontSize: 16,
     fontWeight: '800',
-    color: '#2563EB',
   },
   prodName: {
     fontSize: 14,
@@ -457,6 +455,5 @@ const styles = StyleSheet.create({
   prodRev: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#10B981',
   },
 });

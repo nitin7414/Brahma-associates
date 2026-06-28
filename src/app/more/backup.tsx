@@ -124,10 +124,10 @@ export default function BackupRestoreScreen() {
         </View>
 
         {/* Offline Warning Banner */}
-        <Card style={[styles.warningCard, { borderColor: '#EF4444' }]}>
+        <Card style={[styles.warningCard, { borderColor: theme.danger, borderLeftColor: theme.danger }]}>
           <View style={styles.warningHeader}>
-            <SymbolView name={{ ios: 'exclamationmark.triangle.fill', android: 'warning', web: 'warning' }} size={20} tintColor="#EF4444" />
-            <ThemedText style={styles.warningTitle}>CRITICAL DEVICE SECURITY</ThemedText>
+            <SymbolView name={{ ios: 'exclamationmark.triangle.fill', android: 'warning', web: 'warning' }} size={20} tintColor={theme.danger} />
+            <ThemedText style={[styles.warningTitle, { color: theme.danger }]}>CRITICAL DEVICE SECURITY</ThemedText>
           </View>
           <ThemedText type="small" style={styles.warningText} themeColor="textSecondary">
             Brahma Associates operates **locally offline** on this device. There is no cloud server.
@@ -147,9 +147,9 @@ export default function BackupRestoreScreen() {
           </View>
 
           {needsBackup && (
-            <View style={styles.alertBanner}>
-              <SymbolView name={{ ios: 'clock.fill', android: 'access_time', web: 'timer' as any }} size={14} tintColor="#F59E0B" />
-              <ThemedText type="small" style={styles.alertBannerText}>
+            <View style={[styles.alertBanner, { backgroundColor: theme.warning + '1A' }]}>
+              <SymbolView name={{ ios: 'clock.fill', android: 'access_time', web: 'timer' as any }} size={14} tintColor={theme.warning} />
+              <ThemedText type="small" style={[styles.alertBannerText, { color: theme.warning }]}>
                 No backup generated in over 30 days! Export now to secure your ledger.
               </ThemedText>
             </View>
@@ -215,7 +215,6 @@ const styles = StyleSheet.create({
   },
   warningCard: {
     borderLeftWidth: 4,
-    borderLeftColor: '#EF4444',
     padding: Spacing.three,
     gap: Spacing.one,
   },
@@ -226,7 +225,6 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   warningTitle: {
-    color: '#EF4444',
     fontWeight: '800',
     fontSize: 13,
   },
@@ -250,14 +248,12 @@ const styles = StyleSheet.create({
   alertBanner: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F59E0B1A',
     padding: Spacing.two,
     borderRadius: Spacing.one,
     marginBottom: Spacing.three,
     gap: 6,
   },
   alertBannerText: {
-    color: '#F59E0B',
     fontWeight: '600',
     flex: 1,
   },

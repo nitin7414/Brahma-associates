@@ -43,7 +43,7 @@ interface CustomerState {
   isLoading: boolean;
 
   loadCustomers: () => Promise<void>;
-  addCustomer: (data: Omit<Customer, 'id' | 'createdAt' | 'updatedAt' | 'isActive' | 'isSynced' | 'outstandingBalance'>) => Promise<boolean>;
+  addCustomer: (data: Omit<Customer, 'id' | 'createdAt' | 'updatedAt' | 'isActive' | 'isSynced' | 'outstandingBalance'>) => Promise<string | null>;
   editCustomer: (id: string, updates: Partial<Omit<Customer, 'id' | 'createdAt' | 'updatedAt' | 'isSynced'>>) => Promise<boolean>;
   deactivateCustomer: (id: string) => Promise<boolean>;
   getCustomerTransactions: (customerId: string) => Promise<CustomerTransaction[]>;
@@ -81,10 +81,10 @@ export const useCustomerStore = create<CustomerState>((set, get) => ({
 
       await db.insert(customers).values(newCustomer).run();
       await get().loadCustomers();
-      return true;
+      return id;
     } catch (error) {
       console.error('Failed to add customer:', error);
-      return false;
+      return null;
     }
   },
 

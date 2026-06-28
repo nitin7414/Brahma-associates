@@ -245,7 +245,7 @@ export default function ManageStaffScreen() {
                 onChangeText={(t) => setConfirmPin(t.replace(/[^0-9]/g, ''))}
               />
 
-              {errorMsg ? <ThemedText style={styles.errorText}>{errorMsg}</ThemedText> : null}
+              {errorMsg ? <ThemedText style={[styles.errorText, { color: theme.danger }]}>{errorMsg}</ThemedText> : null}
 
               <View style={styles.formActions}>
                 <Button
@@ -412,7 +412,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   errorText: {
-    color: '#EF4444',
     fontSize: 13,
     fontWeight: '600',
     textAlign: 'center',

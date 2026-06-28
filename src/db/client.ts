@@ -128,7 +128,7 @@ export async function initializeDatabase() {
       `);
 
       console.log('Database tables created successfully. Seeding initial catalog...');
-      await seedInitialCatalog();
+      await seedInitialCatalog(db);
       console.log('Database seeding completed!');
     } else {
       console.log('Database tables already exist. Skipping initialization.');
@@ -156,6 +156,18 @@ export async function initializeDatabase() {
     try {
       expoDb.execSync('ALTER TABLE customers ADD COLUMN gst_charged REAL;');
       console.log('Migrated customers: added purchased scale detail columns');
+    } catch (e) {}
+
+    // Migration: ensure deleted_records table exists
+    try {
+      expoDb.execSync(`
+        CREATE TABLE IF NOT EXISTS deleted_records (
+          id TEXT PRIMARY KEY,
+          entity_type TEXT NOT NULL,
+          deleted_at INTEGER NOT NULL
+        );
+      `);
+      console.log('Migrated: ensured deleted_records table exists');
     } catch (e) {}
   } catch (error) {
     console.error('Failed to initialize local SQLite database:', error);

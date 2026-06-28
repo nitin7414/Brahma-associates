@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer, real } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, real, index } from 'drizzle-orm/sqlite-core';
 
 export const stockItems = sqliteTable('stock_items', {
   id: text('id').primaryKey(),
@@ -17,7 +17,9 @@ export const stockItems = sqliteTable('stock_items', {
   isSynced: integer('is_synced').notNull().default(0),
   createdAt: integer('created_at').notNull(),
   updatedAt: integer('updated_at').notNull(),
-});
+}, (table) => ({
+  updatedAtIdx: index('sqlite_stock_items_updated_at_idx').on(table.updatedAt),
+}));
 
 export const customers = sqliteTable('customers', {
   id: text('id').primaryKey(),
@@ -38,7 +40,9 @@ export const customers = sqliteTable('customers', {
   isSynced: integer('is_synced').notNull().default(0),
   createdAt: integer('created_at').notNull(),
   updatedAt: integer('updated_at').notNull(),
-});
+}, (table) => ({
+  updatedAtIdx: index('sqlite_customers_updated_at_idx').on(table.updatedAt),
+}));
 
 export const transactions = sqliteTable('transactions', {
   id: text('id').primaryKey(),
@@ -56,7 +60,10 @@ export const transactions = sqliteTable('transactions', {
   notes: text('notes'),
   isSynced: integer('is_synced').notNull().default(0),
   createdAt: integer('created_at').notNull(),
-});
+}, (table) => ({
+  createdAtIdx: index('sqlite_transactions_created_at_idx').on(table.createdAt),
+  customerIdIdx: index('sqlite_transactions_customer_id_idx').on(table.customerId),
+}));
 
 export const transactionItems = sqliteTable('transaction_items', {
   id: text('id').primaryKey(),
@@ -65,7 +72,10 @@ export const transactionItems = sqliteTable('transaction_items', {
   quantity: integer('quantity').notNull(),
   unitPrice: real('unit_price').notNull(),
   lineTotal: real('line_total').notNull(),
-});
+}, (table) => ({
+  transactionIdIdx: index('sqlite_transaction_items_transaction_id_idx').on(table.transactionId),
+  stockItemIdIdx: index('sqlite_transaction_items_stock_item_id_idx').on(table.stockItemId),
+}));
 
 export const staffUsers = sqliteTable('staff_users', {
   id: text('id').primaryKey(),
@@ -76,10 +86,14 @@ export const staffUsers = sqliteTable('staff_users', {
   isSynced: integer('is_synced').notNull().default(0),
   createdAt: integer('created_at').notNull(),
   updatedAt: integer('updated_at').notNull(),
-});
+}, (table) => ({
+  updatedAtIdx: index('sqlite_staff_users_updated_at_idx').on(table.updatedAt),
+}));
 
 export const deletedRecords = sqliteTable('deleted_records', {
   id: text('id').primaryKey(),
   entityType: text('entity_type').notNull(), // 'transaction'
   deletedAt: integer('deleted_at').notNull(),
-});
+}, (table) => ({
+  deletedAtIdx: index('sqlite_deleted_records_deleted_at_idx').on(table.deletedAt),
+}));

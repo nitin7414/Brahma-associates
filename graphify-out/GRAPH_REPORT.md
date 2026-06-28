@@ -1,12 +1,12 @@
-# Graph Report - C:\Users\pc\Desktop\Brahma_associates  (2026-06-21)
+# Graph Report - C:\Users\pc\Desktop\Brahma_associates  (2026-06-27)
 
 ## Corpus Check
-- 58 files · ~95,248 words
+- 59 files · ~421,331 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 150 nodes · 118 edges · 43 communities detected
-- Extraction: 87% EXTRACTED · 13% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.8)
+- 150 nodes · 117 edges · 43 communities detected
+- Extraction: 86% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -56,45 +56,45 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `useTheme()` - 8 edges
-2. `MainActivity` - 5 edges
-3. `useColorScheme()` - 5 edges
+2. `useColorScheme()` - 6 edges
+3. `MainActivity` - 5 edges
 4. `MainApplication` - 3 edges
-5. `handleLogout()` - 3 edges
-6. `triggerShake()` - 3 edges
-7. `checkPin()` - 3 edges
-8. `handlePinSubmit()` - 3 edges
-9. `handleRefresh()` - 3 edges
-10. `syncWithCloud()` - 3 edges
+5. `triggerShake()` - 3 edges
+6. `checkPin()` - 3 edges
+7. `handlePinSubmit()` - 3 edges
+8. `handleRefresh()` - 3 edges
+9. `syncWithCloud()` - 3 edges
+10. `refreshData()` - 2 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `TransactionDetailScreen()` --calls--> `useTheme()`  [INFERRED]
-  C:\Users\pc\Desktop\Brahma_associates\src\app\transactions\[id].tsx → C:\Users\pc\Desktop\Brahma_associates\src\hooks\use-theme.ts
 - `TabLayout()` --calls--> `useColorScheme()`  [INFERRED]
   C:\Users\pc\Desktop\Brahma_associates\src\app\_layout.tsx → C:\Users\pc\Desktop\Brahma_associates\src\hooks\use-color-scheme.web.ts
 - `CustomerDetailScreen()` --calls--> `useTheme()`  [INFERRED]
   C:\Users\pc\Desktop\Brahma_associates\src\app\customers\[id].tsx → C:\Users\pc\Desktop\Brahma_associates\src\hooks\use-theme.ts
 - `StockDetailScreen()` --calls--> `useTheme()`  [INFERRED]
   C:\Users\pc\Desktop\Brahma_associates\src\app\stock\[id].tsx → C:\Users\pc\Desktop\Brahma_associates\src\hooks\use-theme.ts
+- `TransactionDetailScreen()` --calls--> `useTheme()`  [INFERRED]
+  C:\Users\pc\Desktop\Brahma_associates\src\app\transactions\[id].tsx → C:\Users\pc\Desktop\Brahma_associates\src\hooks\use-theme.ts
 - `CustomTabList()` --calls--> `useColorScheme()`  [INFERRED]
   C:\Users\pc\Desktop\Brahma_associates\src\components\app-tabs.web.tsx → C:\Users\pc\Desktop\Brahma_associates\src\hooks\use-color-scheme.web.ts
 
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.11
-Nodes (6): CustomerDetailScreen(), StockDetailScreen(), Card(), ThemedText(), ThemedView(), useTheme()
+Cohesion: 0.12
+Nodes (7): CustomerDetailScreen(), StockDetailScreen(), TransactionDetailScreen(), Card(), ThemedText(), ThemedView(), useTheme()
 
 ### Community 1 - "Community 1"
-Cohesion: 0.18
-Nodes (2): getCustomerName(), handleRefresh()
+Cohesion: 0.17
+Nodes (5): CustomTabList(), GradientContainer(), TabLayout(), useColorScheme(), WebBadge()
 
 ### Community 2 - "Community 2"
-Cohesion: 0.2
-Nodes (4): CustomTabList(), TabLayout(), useColorScheme(), WebBadge()
+Cohesion: 0.22
+Nodes (5): getCustomerName(), handleLogout(), handleSync(), refreshData(), syncWithCloud()
 
 ### Community 3 - "Community 3"
-Cohesion: 0.24
-Nodes (5): AlertLogout(), handleLogout(), handleSync(), refreshData(), syncWithCloud()
+Cohesion: 0.2
+Nodes (1): handleRefresh()
 
 ### Community 4 - "Community 4"
 Cohesion: 0.39
@@ -105,32 +105,32 @@ Cohesion: 0.29
 Nodes (1): MainApplication
 
 ### Community 6 - "Community 6"
-Cohesion: 0.33
-Nodes (4): exportDatabaseBackup(), handleExport(), importDatabaseBackup(), triggerFilePicker()
+Cohesion: 0.29
+Nodes (0): 
 
 ### Community 7 - "Community 7"
 Cohesion: 0.33
-Nodes (1): MainActivity
+Nodes (4): exportDatabaseBackup(), handleExport(), importDatabaseBackup(), triggerFilePicker()
 
 ### Community 8 - "Community 8"
 Cohesion: 0.33
-Nodes (0): 
+Nodes (1): MainActivity
 
 ### Community 9 - "Community 9"
-Cohesion: 0.4
+Cohesion: 0.33
 Nodes (0): 
 
 ### Community 10 - "Community 10"
+Cohesion: 0.4
+Nodes (0): 
+
+### Community 11 - "Community 11"
 Cohesion: 0.67
 Nodes (2): handlePickImage(), handleSave()
 
-### Community 11 - "Community 11"
-Cohesion: 0.5
-Nodes (0): 
-
 ### Community 12 - "Community 12"
 Cohesion: 0.5
-Nodes (1): TransactionDetailScreen()
+Nodes (0): 
 
 ### Community 13 - "Community 13"
 Cohesion: 0.5
@@ -149,7 +149,7 @@ Cohesion: 0.67
 Nodes (0): 
 
 ### Community 17 - "Community 17"
-Cohesion: 0.67
+Cohesion: 1.0
 Nodes (0): 
 
 ### Community 18 - "Community 18"
@@ -253,31 +253,33 @@ Cohesion: 1.0
 Nodes (0): 
 
 ## Knowledge Gaps
-- **Thin community `Community 18`** (2 nodes): `reset-project.js`, `moveDirectories()`
+- **Thin community `Community 17`** (2 nodes): `reset-project.js`, `moveDirectories()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 19`** (2 nodes): `index.ts`, `initializeDatabase()`
+- **Thin community `Community 18`** (2 nodes): `_layout.tsx`, `CustomersLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 20`** (2 nodes): `_layout.tsx`, `CustomersLayout()`
+- **Thin community `Community 19`** (2 nodes): `_layout.tsx`, `StockLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 21`** (2 nodes): `_layout.tsx`, `StockLayout()`
+- **Thin community `Community 20`** (2 nodes): `_layout.tsx`, `TransactionsLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 22`** (2 nodes): `_layout.tsx`, `TransactionsLayout()`
+- **Thin community `Community 21`** (2 nodes): `hint-row.tsx`, `HintRow()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 23`** (2 nodes): `hint-row.tsx`, `HintRow()`
+- **Thin community `Community 22`** (2 nodes): `symbol-view.tsx`, `SymbolView()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 24`** (2 nodes): `symbol-view.tsx`, `SymbolView()`
+- **Thin community `Community 23`** (2 nodes): `crypto.ts`, `sha256()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 25`** (2 nodes): `crypto.ts`, `sha256()`
+- **Thin community `Community 24`** (2 nodes): `permissions.ts`, `hasPermission()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 26`** (2 nodes): `permissions.ts`, `hasPermission()`
+- **Thin community `Community 25`** (1 nodes): `expo-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 27`** (1 nodes): `expo-env.d.ts`
+- **Thin community `Community 26`** (1 nodes): `metro.config.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 28`** (1 nodes): `metro.config.js`
+- **Thin community `Community 27`** (1 nodes): `client.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 29`** (1 nodes): `client.ts`
+- **Thin community `Community 28`** (1 nodes): `schema.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 30`** (1 nodes): `schema.ts`
+- **Thin community `Community 29`** (1 nodes): `animated-icon.tsx`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 30`** (1 nodes): `animated-icon.web.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 31`** (1 nodes): `app-tabs.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -307,13 +309,15 @@ Nodes (0):
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useTheme()` connect `Community 0` to `Community 2`, `Community 12`?**
-  _High betweenness centrality (0.035) - this node is a cross-community bridge._
-- **Why does `useColorScheme()` connect `Community 2` to `Community 0`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
+- **Why does `useTheme()` connect `Community 0` to `Community 1`?**
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
+- **Why does `useColorScheme()` connect `Community 1` to `Community 0`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `Card()` connect `Community 0` to `Community 6`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **Are the 7 inferred relationships involving `useTheme()` (e.g. with `CustomerDetailScreen()` and `StockDetailScreen()`) actually correct?**
   _`useTheme()` has 7 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 4 inferred relationships involving `useColorScheme()` (e.g. with `TabLayout()` and `CustomTabList()`) actually correct?**
-  _`useColorScheme()` has 4 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 5 inferred relationships involving `useColorScheme()` (e.g. with `TabLayout()` and `CustomTabList()`) actually correct?**
+  _`useColorScheme()` has 5 INFERRED edges - model-reasoned connections that need verification._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.11 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12 - nodes in this community are weakly interconnected._

@@ -9,7 +9,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\expo-env.d.ts",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_expo_env_d_ts",
-      "community": 27,
+      "community": 25,
       "norm_label": "expo-env.d.ts"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\metro.config.js",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_metro_config_js",
-      "community": 28,
+      "community": 26,
       "norm_label": "metro.config.js"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\android\\app\\src\\main\\java\\com\\anonymous\\Brahma_associates\\MainActivity.kt",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_android_app_src_main_java_com_anonymous_brahma_associates_mainactivity_kt",
-      "community": 7,
+      "community": 8,
       "norm_label": "mainactivity.kt"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\android\\app\\src\\main\\java\\com\\anonymous\\Brahma_associates\\MainActivity.kt",
       "source_location": "L14",
       "id": "mainactivity_mainactivity",
-      "community": 7,
+      "community": 8,
       "norm_label": "mainactivity"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\android\\app\\src\\main\\java\\com\\anonymous\\Brahma_associates\\MainActivity.kt",
       "source_location": "L15",
       "id": "mainactivity_mainactivity_oncreate",
-      "community": 7,
+      "community": 8,
       "norm_label": ".oncreate()"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\android\\app\\src\\main\\java\\com\\anonymous\\Brahma_associates\\MainActivity.kt",
       "source_location": "L30",
       "id": "mainactivity_mainactivity_getmaincomponentname",
-      "community": 7,
+      "community": 8,
       "norm_label": ".getmaincomponentname()"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\android\\app\\src\\main\\java\\com\\anonymous\\Brahma_associates\\MainActivity.kt",
       "source_location": "L36",
       "id": "mainactivity_mainactivity_createreactactivitydelegate",
-      "community": 7,
+      "community": 8,
       "norm_label": ".createreactactivitydelegate()"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\android\\app\\src\\main\\java\\com\\anonymous\\Brahma_associates\\MainActivity.kt",
       "source_location": "L52",
       "id": "mainactivity_mainactivity_invokedefaultonbackpressed",
-      "community": 7,
+      "community": 8,
       "norm_label": ".invokedefaultonbackpressed()"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\scripts\\reset-project.js",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_scripts_reset_project_js",
-      "community": 18,
+      "community": 17,
       "norm_label": "reset-project.js"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\scripts\\reset-project.js",
       "source_location": "L50",
       "id": "reset_project_movedirectories",
-      "community": 18,
+      "community": 17,
       "norm_label": "movedirectories()"
     },
     {
@@ -162,7 +162,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\server\\client.ts",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_server_client_ts",
-      "community": 29,
+      "community": 27,
       "norm_label": "client.ts"
     },
     {
@@ -171,17 +171,26 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\server\\index.ts",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_server_index_ts",
-      "community": 19,
+      "community": 14,
       "norm_label": "index.ts"
     },
     {
       "label": "initializeDatabase()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\server\\index.ts",
-      "source_location": "L17",
+      "source_location": "L18",
       "id": "index_initializedatabase",
-      "community": 19,
+      "community": 14,
       "norm_label": "initializedatabase()"
+    },
+    {
+      "label": "authenticateSync()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\server\\index.ts",
+      "source_location": "L138",
+      "id": "index_authenticatesync",
+      "community": 14,
+      "norm_label": "authenticatesync()"
     },
     {
       "label": "schema.ts",
@@ -189,7 +198,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\server\\schema.ts",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_server_schema_ts",
-      "community": 30,
+      "community": 28,
       "norm_label": "schema.ts"
     },
     {
@@ -198,25 +207,25 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_index_tsx",
-      "community": 3,
+      "community": 2,
       "norm_label": "index.tsx"
     },
     {
       "label": "refreshData()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L46",
+      "source_location": "L49",
       "id": "index_refreshdata",
-      "community": 3,
+      "community": 2,
       "norm_label": "refreshdata()"
     },
     {
       "label": "handleSync()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L63",
+      "source_location": "L66",
       "id": "index_handlesync",
-      "community": 3,
+      "community": 2,
       "norm_label": "handlesync()"
     },
     {
@@ -225,17 +234,8 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\index.tsx",
       "source_location": "L29",
       "id": "index_handlelogout",
-      "community": 3,
+      "community": 2,
       "norm_label": "handlelogout()"
-    },
-    {
-      "label": "AlertLogout()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L95",
-      "id": "index_alertlogout",
-      "community": 3,
-      "norm_label": "alertlogout()"
     },
     {
       "label": "getCustomerName()",
@@ -243,16 +243,16 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\index.tsx",
       "source_location": "L95",
       "id": "index_getcustomername",
-      "community": 1,
+      "community": 2,
       "norm_label": "getcustomername()"
     },
     {
       "label": "getTxBadge()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L148",
+      "source_location": "L145",
       "id": "index_gettxbadge",
-      "community": 3,
+      "community": 2,
       "norm_label": "gettxbadge()"
     },
     {
@@ -268,7 +268,7 @@
       "label": "triggerShake()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L43",
+      "source_location": "L39",
       "id": "login_triggershake",
       "community": 4,
       "norm_label": "triggershake()"
@@ -277,7 +277,7 @@
       "label": "handleKeyPress()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L56",
+      "source_location": "L49",
       "id": "login_handlekeypress",
       "community": 4,
       "norm_label": "handlekeypress()"
@@ -286,7 +286,7 @@
       "label": "checkPin()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L71",
+      "source_location": "L62",
       "id": "login_checkpin",
       "community": 4,
       "norm_label": "checkpin()"
@@ -295,7 +295,7 @@
       "label": "handlePinSubmit()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L91",
+      "source_location": "L77",
       "id": "login_handlepinsubmit",
       "community": 4,
       "norm_label": "handlepinsubmit()"
@@ -304,7 +304,7 @@
       "label": "handleDelete()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L108",
+      "source_location": "L93",
       "id": "login_handledelete",
       "community": 4,
       "norm_label": "handledelete()"
@@ -313,7 +313,7 @@
       "label": "handleClear()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L115",
+      "source_location": "L100",
       "id": "login_handleclear",
       "community": 4,
       "norm_label": "handleclear()"
@@ -322,7 +322,7 @@
       "label": "handleCreateOwner()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L121",
+      "source_location": "L106",
       "id": "login_handlecreateowner",
       "community": 4,
       "norm_label": "handlecreateowner()"
@@ -333,7 +333,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\search.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_search_tsx",
-      "community": 9,
+      "community": 10,
       "norm_label": "search.tsx"
     },
     {
@@ -342,7 +342,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\search.tsx",
       "source_location": "L51",
       "id": "search_performsearch",
-      "community": 9,
+      "community": 10,
       "norm_label": "performsearch()"
     },
     {
@@ -351,7 +351,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\search.tsx",
       "source_location": "L132",
       "id": "search_handleresulttap",
-      "community": 9,
+      "community": 10,
       "norm_label": "handleresulttap()"
     },
     {
@@ -360,7 +360,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\search.tsx",
       "source_location": "L137",
       "id": "search_getcustomername",
-      "community": 9,
+      "community": 10,
       "norm_label": "getcustomername()"
     },
     {
@@ -369,7 +369,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\search.tsx",
       "source_location": "L180",
       "id": "search_searching",
-      "community": 9,
+      "community": 10,
       "norm_label": "searching()"
     },
     {
@@ -378,16 +378,16 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\_layout.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_layout_tsx",
-      "community": 2,
+      "community": 1,
       "norm_label": "_layout.tsx"
     },
     {
       "label": "TabLayout()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\_layout.tsx",
-      "source_location": "L33",
+      "source_location": "L34",
       "id": "layout_tablayout",
-      "community": 2,
+      "community": 1,
       "norm_label": "tablayout()"
     },
     {
@@ -396,25 +396,25 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\edit.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_customers_edit_tsx",
-      "community": 10,
+      "community": 11,
       "norm_label": "edit.tsx"
     },
     {
       "label": "handlePickImage()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\edit.tsx",
-      "source_location": "L98",
+      "source_location": "L121",
       "id": "edit_handlepickimage",
-      "community": 10,
+      "community": 11,
       "norm_label": "handlepickimage()"
     },
     {
       "label": "handleSave()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\edit.tsx",
-      "source_location": "L148",
+      "source_location": "L170",
       "id": "edit_handlesave",
-      "community": 10,
+      "community": 11,
       "norm_label": "handlesave()"
     },
     {
@@ -423,7 +423,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\index.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_customers_index_tsx",
-      "community": 1,
+      "community": 3,
       "norm_label": "index.tsx"
     },
     {
@@ -432,16 +432,16 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\index.tsx",
       "source_location": "L76",
       "id": "index_handlerefresh",
-      "community": 1,
+      "community": 3,
       "norm_label": "handlerefresh()"
     },
     {
       "label": "handleCall()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\index.tsx",
-      "source_location": "L39",
+      "source_location": "L38",
       "id": "index_handlecall",
-      "community": 1,
+      "community": 3,
       "norm_label": "handlecall()"
     },
     {
@@ -457,7 +457,7 @@
       "label": "CustomerDetailScreen()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\[id].tsx",
-      "source_location": "L28",
+      "source_location": "L31",
       "id": "id_customerdetailscreen",
       "community": 0,
       "norm_label": "customerdetailscreen()"
@@ -466,7 +466,7 @@
       "label": "getPaymentBadgeVariant()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\[id].tsx",
-      "source_location": "L153",
+      "source_location": "L213",
       "id": "id_getpaymentbadgevariant",
       "community": 0,
       "norm_label": "getpaymentbadgevariant()"
@@ -477,7 +477,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\_layout.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_customers_layout_tsx",
-      "community": 20,
+      "community": 18,
       "norm_label": "_layout.tsx"
     },
     {
@@ -486,7 +486,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\_layout.tsx",
       "source_location": "L3",
       "id": "layout_customerslayout",
-      "community": 20,
+      "community": 18,
       "norm_label": "customerslayout()"
     },
     {
@@ -495,7 +495,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\backup.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_more_backup_tsx",
-      "community": 6,
+      "community": 7,
       "norm_label": "backup.tsx"
     },
     {
@@ -504,7 +504,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\backup.tsx",
       "source_location": "L36",
       "id": "backup_handleexport",
-      "community": 6,
+      "community": 7,
       "norm_label": "handleexport()"
     },
     {
@@ -513,7 +513,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\backup.tsx",
       "source_location": "L56",
       "id": "backup_handleimport",
-      "community": 6,
+      "community": 7,
       "norm_label": "handleimport()"
     },
     {
@@ -522,7 +522,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\backup.tsx",
       "source_location": "L73",
       "id": "backup_triggerfilepicker",
-      "community": 6,
+      "community": 7,
       "norm_label": "triggerfilepicker()"
     },
     {
@@ -531,16 +531,16 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\index.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_more_index_tsx",
-      "community": 3,
+      "community": 2,
       "norm_label": "index.tsx"
     },
     {
       "label": "toggleTheme()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\index.tsx",
-      "source_location": "L37",
+      "source_location": "L38",
       "id": "index_toggletheme",
-      "community": 3,
+      "community": 2,
       "norm_label": "toggletheme()"
     },
     {
@@ -549,7 +549,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\reports.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_more_reports_tsx",
-      "community": 11,
+      "community": 12,
       "norm_label": "reports.tsx"
     },
     {
@@ -558,7 +558,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\reports.tsx",
       "source_location": "L64",
       "id": "reports_generatereports",
-      "community": 11,
+      "community": 12,
       "norm_label": "generatereports()"
     },
     {
@@ -567,7 +567,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\reports.tsx",
       "source_location": "L156",
       "id": "reports_getcategorycolor",
-      "community": 11,
+      "community": 12,
       "norm_label": "getcategorycolor()"
     },
     {
@@ -576,7 +576,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\reports.tsx",
       "source_location": "L166",
       "id": "reports_getmaxdailyvalue",
-      "community": 11,
+      "community": 12,
       "norm_label": "getmaxdailyvalue()"
     },
     {
@@ -585,25 +585,25 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\staff.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_more_staff_tsx",
-      "community": 14,
+      "community": 15,
       "norm_label": "staff.tsx"
     },
     {
       "label": "handleAddStaff()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\staff.tsx",
-      "source_location": "L36",
+      "source_location": "L50",
       "id": "staff_handleaddstaff",
-      "community": 14,
+      "community": 15,
       "norm_label": "handleaddstaff()"
     },
     {
       "label": "handleDeactivate()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\staff.tsx",
-      "source_location": "L74",
+      "source_location": "L87",
       "id": "staff_handledeactivate",
-      "community": 14,
+      "community": 15,
       "norm_label": "handledeactivate()"
     },
     {
@@ -612,7 +612,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\edit.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_stock_edit_tsx",
-      "community": 10,
+      "community": 11,
       "norm_label": "edit.tsx"
     },
     {
@@ -621,16 +621,16 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\index.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_stock_index_tsx",
-      "community": 1,
+      "community": 3,
       "norm_label": "index.tsx"
     },
     {
       "label": "getCategoryLabel()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\index.tsx",
-      "source_location": "L94",
+      "source_location": "L92",
       "id": "index_getcategorylabel",
-      "community": 1,
+      "community": 3,
       "norm_label": "getcategorylabel()"
     },
     {
@@ -666,7 +666,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\_layout.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_stock_layout_tsx",
-      "community": 21,
+      "community": 19,
       "norm_label": "_layout.tsx"
     },
     {
@@ -675,7 +675,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\_layout.tsx",
       "source_location": "L3",
       "id": "layout_stocklayout",
-      "community": 21,
+      "community": 19,
       "norm_label": "stocklayout()"
     },
     {
@@ -684,7 +684,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\index.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_transactions_index_tsx",
-      "community": 1,
+      "community": 3,
       "norm_label": "index.tsx"
     },
     {
@@ -693,7 +693,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\index.tsx",
       "source_location": "L80",
       "id": "index_togglefilterspanel",
-      "community": 1,
+      "community": 3,
       "norm_label": "togglefilterspanel()"
     },
     {
@@ -702,25 +702,25 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\index.tsx",
       "source_location": "L86",
       "id": "index_resetfilters",
-      "community": 1,
+      "community": 3,
       "norm_label": "resetfilters()"
     },
     {
       "label": "getTxTypeMeta()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\index.tsx",
-      "source_location": "L141",
+      "source_location": "L136",
       "id": "index_gettxtypemeta",
-      "community": 1,
+      "community": 3,
       "norm_label": "gettxtypemeta()"
     },
     {
       "label": "getStatusBadgeVariant()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\index.tsx",
-      "source_location": "L151",
+      "source_location": "L147",
       "id": "index_getstatusbadgevariant",
-      "community": 1,
+      "community": 3,
       "norm_label": "getstatusbadgevariant()"
     },
     {
@@ -729,7 +729,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\new.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_transactions_new_tsx",
-      "community": 8,
+      "community": 9,
       "norm_label": "new.tsx"
     },
     {
@@ -738,7 +738,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\new.tsx",
       "source_location": "L101",
       "id": "new_handleselectcustomer",
-      "community": 8,
+      "community": 9,
       "norm_label": "handleselectcustomer()"
     },
     {
@@ -747,7 +747,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\new.tsx",
       "source_location": "L152",
       "id": "new_handleselectstock",
-      "community": 8,
+      "community": 9,
       "norm_label": "handleselectstock()"
     },
     {
@@ -756,7 +756,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\new.tsx",
       "source_location": "L165",
       "id": "new_handleaddlineitem",
-      "community": 8,
+      "community": 9,
       "norm_label": "handleaddlineitem()"
     },
     {
@@ -765,7 +765,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\new.tsx",
       "source_location": "L222",
       "id": "new_handleremovelineitem",
-      "community": 8,
+      "community": 9,
       "norm_label": "handleremovelineitem()"
     },
     {
@@ -774,7 +774,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\new.tsx",
       "source_location": "L227",
       "id": "new_handlesave",
-      "community": 8,
+      "community": 9,
       "norm_label": "handlesave()"
     },
     {
@@ -783,7 +783,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\[id].tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_transactions_id_tsx",
-      "community": 12,
+      "community": 0,
       "norm_label": "[id].tsx"
     },
     {
@@ -792,7 +792,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\[id].tsx",
       "source_location": "L25",
       "id": "id_transactiondetailscreen",
-      "community": 12,
+      "community": 0,
       "norm_label": "transactiondetailscreen()"
     },
     {
@@ -801,16 +801,16 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\[id].tsx",
       "source_location": "L117",
       "id": "id_gettxtypelabel",
-      "community": 12,
+      "community": 0,
       "norm_label": "gettxtypelabel()"
     },
     {
       "label": "getPaymentStatusBadge()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\[id].tsx",
-      "source_location": "L127",
+      "source_location": "L128",
       "id": "id_getpaymentstatusbadge",
-      "community": 12,
+      "community": 0,
       "norm_label": "getpaymentstatusbadge()"
     },
     {
@@ -819,7 +819,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\_layout.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_app_transactions_layout_tsx",
-      "community": 22,
+      "community": 20,
       "norm_label": "_layout.tsx"
     },
     {
@@ -828,7 +828,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\_layout.tsx",
       "source_location": "L3",
       "id": "layout_transactionslayout",
-      "community": 22,
+      "community": 20,
       "norm_label": "transactionslayout()"
     },
     {
@@ -837,26 +837,8 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\animated-icon.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_components_animated_icon_tsx",
-      "community": 15,
+      "community": 29,
       "norm_label": "animated-icon.tsx"
-    },
-    {
-      "label": "AnimatedSplashOverlay()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\animated-icon.tsx",
-      "source_location": "L10",
-      "id": "animated_icon_animatedsplashoverlay",
-      "community": 15,
-      "norm_label": "animatedsplashoverlay()"
-    },
-    {
-      "label": "AnimatedIcon()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\animated-icon.tsx",
-      "source_location": "L83",
-      "id": "animated_icon_animatedicon",
-      "community": 15,
-      "norm_label": "animatedicon()"
     },
     {
       "label": "animated-icon.web.tsx",
@@ -864,26 +846,8 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\animated-icon.web.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_components_animated_icon_web_tsx",
-      "community": 16,
+      "community": 30,
       "norm_label": "animated-icon.web.tsx"
-    },
-    {
-      "label": "AnimatedSplashOverlay()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\animated-icon.web.tsx",
-      "source_location": "L8",
-      "id": "animated_icon_web_animatedsplashoverlay",
-      "community": 16,
-      "norm_label": "animatedsplashoverlay()"
-    },
-    {
-      "label": "AnimatedIcon()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\animated-icon.web.tsx",
-      "source_location": "L57",
-      "id": "animated_icon_web_animatedicon",
-      "community": 16,
-      "norm_label": "animatedicon()"
     },
     {
       "label": "app-tabs.tsx",
@@ -900,7 +864,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\app-tabs.web.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_components_app_tabs_web_tsx",
-      "community": 2,
+      "community": 1,
       "norm_label": "app-tabs.web.tsx"
     },
     {
@@ -909,7 +873,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\app-tabs.web.tsx",
       "source_location": "L19",
       "id": "app_tabs_web_apptabs",
-      "community": 2,
+      "community": 1,
       "norm_label": "apptabs()"
     },
     {
@@ -918,7 +882,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\app-tabs.web.tsx",
       "source_location": "L48",
       "id": "app_tabs_web_tabbutton",
-      "community": 2,
+      "community": 1,
       "norm_label": "tabbutton()"
     },
     {
@@ -927,7 +891,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\app-tabs.web.tsx",
       "source_location": "L62",
       "id": "app_tabs_web_customtablist",
-      "community": 2,
+      "community": 1,
       "norm_label": "customtablist()"
     },
     {
@@ -936,7 +900,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\external-link.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_components_external_link_tsx",
-      "community": 17,
+      "community": 16,
       "norm_label": "external-link.tsx"
     },
     {
@@ -945,7 +909,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\external-link.tsx",
       "source_location": "L7",
       "id": "external_link_externallink",
-      "community": 17,
+      "community": 16,
       "norm_label": "externallink()"
     },
     {
@@ -954,8 +918,26 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\external-link.tsx",
       "source_location": "L13",
       "id": "external_link_async",
-      "community": 17,
+      "community": 16,
       "norm_label": "async()"
+    },
+    {
+      "label": "gradient-container.tsx",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\gradient-container.tsx",
+      "source_location": "L1",
+      "id": "c_users_pc_desktop_brahma_associates_src_components_gradient_container_tsx",
+      "community": 1,
+      "norm_label": "gradient-container.tsx"
+    },
+    {
+      "label": "GradientContainer()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\gradient-container.tsx",
+      "source_location": "L7",
+      "id": "gradient_container_gradientcontainer",
+      "community": 1,
+      "norm_label": "gradientcontainer()"
     },
     {
       "label": "hint-row.tsx",
@@ -963,7 +945,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\hint-row.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_components_hint_row_tsx",
-      "community": 23,
+      "community": 21,
       "norm_label": "hint-row.tsx"
     },
     {
@@ -972,7 +954,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\hint-row.tsx",
       "source_location": "L14",
       "id": "hint_row_hintrow",
-      "community": 23,
+      "community": 21,
       "norm_label": "hintrow()"
     },
     {
@@ -981,7 +963,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\symbol-view.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_components_symbol_view_tsx",
-      "community": 24,
+      "community": 22,
       "norm_label": "symbol-view.tsx"
     },
     {
@@ -990,7 +972,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\symbol-view.tsx",
       "source_location": "L110",
       "id": "symbol_view_symbolview",
-      "community": 24,
+      "community": 22,
       "norm_label": "symbolview()"
     },
     {
@@ -1035,7 +1017,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\web-badge.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_components_web_badge_tsx",
-      "community": 2,
+      "community": 1,
       "norm_label": "web-badge.tsx"
     },
     {
@@ -1044,7 +1026,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\web-badge.tsx",
       "source_location": "L10",
       "id": "web_badge_webbadge",
-      "community": 2,
+      "community": 1,
       "norm_label": "webbadge()"
     },
     {
@@ -1062,52 +1044,70 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_components_ui_primitives_tsx",
-      "community": 0,
+      "community": 6,
       "norm_label": "primitives.tsx"
     },
     {
       "label": "Card()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
-      "source_location": "L24",
+      "source_location": "L26",
       "id": "primitives_card",
       "community": 0,
       "norm_label": "card()"
     },
     {
+      "label": "handlePressIn()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
+      "source_location": "L104",
+      "id": "primitives_handlepressin",
+      "community": 6,
+      "norm_label": "handlepressin()"
+    },
+    {
+      "label": "handlePressOut()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
+      "source_location": "L112",
+      "id": "primitives_handlepressout",
+      "community": 6,
+      "norm_label": "handlepressout()"
+    },
+    {
       "label": "getBackgroundColor()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
-      "source_location": "L72",
+      "source_location": "L120",
       "id": "primitives_getbackgroundcolor",
-      "community": 0,
+      "community": 6,
       "norm_label": "getbackgroundcolor()"
     },
     {
       "label": "getTextColor()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
-      "source_location": "L82",
+      "source_location": "L130",
       "id": "primitives_gettextcolor",
-      "community": 0,
+      "community": 6,
       "norm_label": "gettextcolor()"
     },
     {
       "label": "handlePress()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
-      "source_location": "L88",
+      "source_location": "L136",
       "id": "primitives_handlepress",
-      "community": 0,
+      "community": 6,
       "norm_label": "handlepress()"
     },
     {
       "label": "getColors()",
       "file_type": "code",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
-      "source_location": "L162",
+      "source_location": "L232",
       "id": "primitives_getcolors",
-      "community": 0,
+      "community": 6,
       "norm_label": "getcolors()"
     },
     {
@@ -1179,7 +1179,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\hooks\\use-color-scheme.web.ts",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_hooks_use_color_scheme_web_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "use-color-scheme.web.ts"
     },
     {
@@ -1188,7 +1188,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\hooks\\use-color-scheme.web.ts",
       "source_location": "L7",
       "id": "use_color_scheme_web_usecolorscheme",
-      "community": 2,
+      "community": 1,
       "norm_label": "usecolorscheme()"
     },
     {
@@ -1215,7 +1215,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\lib\\backup.ts",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_lib_backup_ts",
-      "community": 6,
+      "community": 7,
       "norm_label": "backup.ts"
     },
     {
@@ -1224,7 +1224,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\lib\\backup.ts",
       "source_location": "L26",
       "id": "backup_exportdatabasebackup",
-      "community": 6,
+      "community": 7,
       "norm_label": "exportdatabasebackup()"
     },
     {
@@ -1233,7 +1233,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\lib\\backup.ts",
       "source_location": "L80",
       "id": "backup_importdatabasebackup",
-      "community": 6,
+      "community": 7,
       "norm_label": "importdatabasebackup()"
     },
     {
@@ -1242,7 +1242,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\lib\\crypto.ts",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_lib_crypto_ts",
-      "community": 25,
+      "community": 23,
       "norm_label": "crypto.ts"
     },
     {
@@ -1251,7 +1251,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\lib\\crypto.ts",
       "source_location": "L5",
       "id": "crypto_sha256",
-      "community": 25,
+      "community": 23,
       "norm_label": "sha256()"
     },
     {
@@ -1260,7 +1260,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\lib\\permissions.ts",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_lib_permissions_ts",
-      "community": 26,
+      "community": 24,
       "norm_label": "permissions.ts"
     },
     {
@@ -1269,7 +1269,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\lib\\permissions.ts",
       "source_location": "L63",
       "id": "permissions_haspermission",
-      "community": 26,
+      "community": 24,
       "norm_label": "haspermission()"
     },
     {
@@ -1278,7 +1278,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\lib\\sync.ts",
       "source_location": "L1",
       "id": "c_users_pc_desktop_brahma_associates_src_lib_sync_ts",
-      "community": 3,
+      "community": 2,
       "norm_label": "sync.ts"
     },
     {
@@ -1287,7 +1287,7 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\lib\\sync.ts",
       "source_location": "L18",
       "id": "sync_syncwithcloud",
-      "community": 3,
+      "community": 2,
       "norm_label": "syncwithcloud()"
     },
     {
@@ -1503,7 +1503,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\server\\index.ts",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_server_index_ts",
       "_tgt": "index_initializedatabase",
@@ -1514,8 +1514,20 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\server\\index.ts",
+      "source_location": "L138",
+      "weight": 1.0,
+      "_src": "c_users_pc_desktop_brahma_associates_server_index_ts",
+      "_tgt": "index_authenticatesync",
+      "source": "c_users_pc_desktop_brahma_associates_server_index_ts",
+      "target": "index_authenticatesync",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L46",
+      "source_location": "L49",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_index_tsx",
       "_tgt": "index_refreshdata",
@@ -1527,7 +1539,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L63",
+      "source_location": "L66",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_index_tsx",
       "_tgt": "index_handlesync",
@@ -1539,7 +1551,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L90",
+      "source_location": "L93",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_index_tsx",
       "_tgt": "index_handlelogout",
@@ -1551,19 +1563,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L95",
-      "weight": 1.0,
-      "_src": "c_users_pc_desktop_brahma_associates_src_app_index_tsx",
-      "_tgt": "index_alertlogout",
-      "source": "c_users_pc_desktop_brahma_associates_src_app_index_tsx",
-      "target": "index_alertlogout",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L142",
+      "source_location": "L139",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_index_tsx",
       "_tgt": "index_getcustomername",
@@ -1575,7 +1575,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L148",
+      "source_location": "L145",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_index_tsx",
       "_tgt": "index_gettxbadge",
@@ -1608,18 +1608,6 @@
       "target": "sync_syncwithcloud"
     },
     {
-      "relation": "calls",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\index.tsx",
-      "source_location": "L92",
-      "weight": 1.0,
-      "_src": "index_handlelogout",
-      "_tgt": "index_alertlogout",
-      "source": "index_handlelogout",
-      "target": "index_alertlogout",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\index.tsx",
@@ -1647,7 +1635,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L43",
+      "source_location": "L39",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_login_tsx",
       "_tgt": "login_triggershake",
@@ -1659,7 +1647,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L56",
+      "source_location": "L49",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_login_tsx",
       "_tgt": "login_handlekeypress",
@@ -1671,7 +1659,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L71",
+      "source_location": "L62",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_login_tsx",
       "_tgt": "login_checkpin",
@@ -1683,7 +1671,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L91",
+      "source_location": "L77",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_login_tsx",
       "_tgt": "login_handlepinsubmit",
@@ -1695,7 +1683,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L108",
+      "source_location": "L93",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_login_tsx",
       "_tgt": "login_handledelete",
@@ -1707,7 +1695,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L115",
+      "source_location": "L100",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_login_tsx",
       "_tgt": "login_handleclear",
@@ -1719,7 +1707,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L121",
+      "source_location": "L106",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_login_tsx",
       "_tgt": "login_handlecreateowner",
@@ -1731,7 +1719,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L93",
+      "source_location": "L79",
       "weight": 1.0,
       "_src": "login_handlepinsubmit",
       "_tgt": "login_triggershake",
@@ -1743,7 +1731,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L123",
+      "source_location": "L108",
       "weight": 1.0,
       "_src": "login_handlecreateowner",
       "_tgt": "login_triggershake",
@@ -1755,7 +1743,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L67",
+      "source_location": "L58",
       "weight": 1.0,
       "_src": "login_handlekeypress",
       "_tgt": "login_checkpin",
@@ -1767,7 +1755,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\login.tsx",
-      "source_location": "L97",
+      "source_location": "L83",
       "weight": 1.0,
       "_src": "login_handlepinsubmit",
       "_tgt": "login_checkpin",
@@ -1827,7 +1815,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\_layout.tsx",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_layout_tsx",
       "_tgt": "layout_tablayout",
@@ -1875,7 +1863,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\edit.tsx",
-      "source_location": "L98",
+      "source_location": "L121",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_stock_edit_tsx",
       "_tgt": "edit_handlepickimage",
@@ -1887,7 +1875,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\edit.tsx",
-      "source_location": "L148",
+      "source_location": "L170",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_stock_edit_tsx",
       "_tgt": "edit_handlesave",
@@ -1899,7 +1887,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\index.tsx",
-      "source_location": "L35",
+      "source_location": "L34",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_customers_index_tsx",
       "_tgt": "index_handlerefresh",
@@ -1911,7 +1899,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\index.tsx",
-      "source_location": "L39",
+      "source_location": "L38",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_customers_index_tsx",
       "_tgt": "index_handlecall",
@@ -1923,7 +1911,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\index.tsx",
-      "source_location": "L50",
+      "source_location": "L48",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_stock_index_tsx",
       "_tgt": "index_handlerefresh",
@@ -1947,7 +1935,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\[id].tsx",
-      "source_location": "L28",
+      "source_location": "L31",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_customers_id_tsx",
       "_tgt": "id_customerdetailscreen",
@@ -1959,7 +1947,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\customers\\[id].tsx",
-      "source_location": "L153",
+      "source_location": "L213",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_customers_id_tsx",
       "_tgt": "id_getpaymentbadgevariant",
@@ -2055,7 +2043,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\index.tsx",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_more_index_tsx",
       "_tgt": "index_toggletheme",
@@ -2103,7 +2091,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\staff.tsx",
-      "source_location": "L36",
+      "source_location": "L50",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_more_staff_tsx",
       "_tgt": "staff_handleaddstaff",
@@ -2115,7 +2103,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\more\\staff.tsx",
-      "source_location": "L74",
+      "source_location": "L87",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_more_staff_tsx",
       "_tgt": "staff_handledeactivate",
@@ -2127,7 +2115,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\stock\\index.tsx",
-      "source_location": "L139",
+      "source_location": "L140",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_stock_index_tsx",
       "_tgt": "index_getcategorylabel",
@@ -2211,7 +2199,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\index.tsx",
-      "source_location": "L141",
+      "source_location": "L136",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_transactions_index_tsx",
       "_tgt": "index_gettxtypemeta",
@@ -2223,7 +2211,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\index.tsx",
-      "source_location": "L151",
+      "source_location": "L147",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_transactions_index_tsx",
       "_tgt": "index_getstatusbadgevariant",
@@ -2319,7 +2307,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\app\\transactions\\[id].tsx",
-      "source_location": "L127",
+      "source_location": "L128",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_app_transactions_id_tsx",
       "_tgt": "id_getpaymentstatusbadge",
@@ -2349,54 +2337,6 @@
       "_tgt": "layout_transactionslayout",
       "source": "c_users_pc_desktop_brahma_associates_src_app_transactions_layout_tsx",
       "target": "layout_transactionslayout",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\animated-icon.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_src": "c_users_pc_desktop_brahma_associates_src_components_animated_icon_tsx",
-      "_tgt": "animated_icon_animatedsplashoverlay",
-      "source": "c_users_pc_desktop_brahma_associates_src_components_animated_icon_tsx",
-      "target": "animated_icon_animatedsplashoverlay",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\animated-icon.tsx",
-      "source_location": "L83",
-      "weight": 1.0,
-      "_src": "c_users_pc_desktop_brahma_associates_src_components_animated_icon_tsx",
-      "_tgt": "animated_icon_animatedicon",
-      "source": "c_users_pc_desktop_brahma_associates_src_components_animated_icon_tsx",
-      "target": "animated_icon_animatedicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\animated-icon.web.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_src": "c_users_pc_desktop_brahma_associates_src_components_animated_icon_web_tsx",
-      "_tgt": "animated_icon_web_animatedsplashoverlay",
-      "source": "c_users_pc_desktop_brahma_associates_src_components_animated_icon_web_tsx",
-      "target": "animated_icon_web_animatedsplashoverlay",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\animated-icon.web.tsx",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_src": "c_users_pc_desktop_brahma_associates_src_components_animated_icon_web_tsx",
-      "_tgt": "animated_icon_web_animatedicon",
-      "source": "c_users_pc_desktop_brahma_associates_src_components_animated_icon_web_tsx",
-      "target": "animated_icon_web_animatedicon",
       "confidence_score": 1.0
     },
     {
@@ -2470,6 +2410,30 @@
       "source": "c_users_pc_desktop_brahma_associates_src_components_external_link_tsx",
       "target": "external_link_async",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\gradient-container.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_src": "c_users_pc_desktop_brahma_associates_src_components_gradient_container_tsx",
+      "_tgt": "gradient_container_gradientcontainer",
+      "source": "c_users_pc_desktop_brahma_associates_src_components_gradient_container_tsx",
+      "target": "gradient_container_gradientcontainer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\gradient-container.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_src": "gradient_container_gradientcontainer",
+      "_tgt": "use_color_scheme_web_usecolorscheme",
+      "source": "gradient_container_gradientcontainer",
+      "target": "use_color_scheme_web_usecolorscheme"
     },
     {
       "relation": "contains",
@@ -2571,7 +2535,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_components_ui_primitives_tsx",
       "_tgt": "primitives_card",
@@ -2583,7 +2547,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
-      "source_location": "L72",
+      "source_location": "L104",
+      "weight": 1.0,
+      "_src": "c_users_pc_desktop_brahma_associates_src_components_ui_primitives_tsx",
+      "_tgt": "primitives_handlepressin",
+      "source": "c_users_pc_desktop_brahma_associates_src_components_ui_primitives_tsx",
+      "target": "primitives_handlepressin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_src": "c_users_pc_desktop_brahma_associates_src_components_ui_primitives_tsx",
+      "_tgt": "primitives_handlepressout",
+      "source": "c_users_pc_desktop_brahma_associates_src_components_ui_primitives_tsx",
+      "target": "primitives_handlepressout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
+      "source_location": "L120",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_components_ui_primitives_tsx",
       "_tgt": "primitives_getbackgroundcolor",
@@ -2595,7 +2583,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
-      "source_location": "L82",
+      "source_location": "L130",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_components_ui_primitives_tsx",
       "_tgt": "primitives_gettextcolor",
@@ -2607,7 +2595,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
-      "source_location": "L88",
+      "source_location": "L136",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_components_ui_primitives_tsx",
       "_tgt": "primitives_handlepress",
@@ -2619,7 +2607,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\components\\ui\\primitives.tsx",
-      "source_location": "L162",
+      "source_location": "L232",
       "weight": 1.0,
       "_src": "c_users_pc_desktop_brahma_associates_src_components_ui_primitives_tsx",
       "_tgt": "primitives_getcolors",
@@ -2694,8 +2682,8 @@
       "source_file": "C:\\Users\\pc\\Desktop\\Brahma_associates\\src\\hooks\\use-theme.ts",
       "source_location": "L12",
       "weight": 1.0,
-      "_src": "use_theme_usetheme",
-      "_tgt": "use_color_scheme_web_usecolorscheme",
+      "_src": "use_color_scheme_web_usecolorscheme",
+      "_tgt": "use_theme_usetheme",
       "source": "use_color_scheme_web_usecolorscheme",
       "target": "use_theme_usetheme"
     },

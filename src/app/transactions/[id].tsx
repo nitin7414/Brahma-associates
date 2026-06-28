@@ -92,7 +92,7 @@ export default function TransactionDetailScreen() {
     return (
       <SafeAreaView style={[styles.container, { backgroundColor: theme.background }]}>
         <View style={styles.center}>
-          <ActivityIndicator size="large" color="#2563EB" />
+          <ActivityIndicator size="large" color={theme.primary} />
           <ThemedText style={{ marginTop: Spacing.two }}>Loading invoice details...</ThemedText>
         </View>
       </SafeAreaView>
@@ -116,12 +116,12 @@ export default function TransactionDetailScreen() {
 
   const getTxTypeLabel = (type: string) => {
     switch (type) {
-      case 'sale': return { label: 'SALE INVOICE', color: '#3B82F6', isDeduct: true };
-      case 'purchase': return { label: 'PURCHASE INWARD', color: '#10B981', isDeduct: false };
-      case 'return_in': return { label: 'CUSTOMER RETURN', color: '#F59E0B', isDeduct: false };
-      case 'return_out': return { label: 'SUPPLIER RETURN', color: '#EF4444', isDeduct: true };
-      case 'payment': return { label: 'REPAYMENT RECEIVED', color: '#10B981', isDeduct: false };
-      default: return { label: type.toUpperCase(), color: '#64748B', isDeduct: true };
+      case 'sale': return { label: 'SALE INVOICE', color: theme.primary, isDeduct: true };
+      case 'purchase': return { label: 'PURCHASE INWARD', color: theme.success, isDeduct: false };
+      case 'return_in': return { label: 'CUSTOMER RETURN', color: theme.warning, isDeduct: false };
+      case 'return_out': return { label: 'SUPPLIER RETURN', color: theme.danger, isDeduct: true };
+      case 'payment': return { label: 'REPAYMENT RECEIVED', color: theme.success, isDeduct: false };
+      default: return { label: type.toUpperCase(), color: theme.textSecondary, isDeduct: true };
     }
   };
 
@@ -186,7 +186,7 @@ export default function TransactionDetailScreen() {
                     </ThemedText>
                   )}
                   {customer.phone && (
-                    <ThemedText type="small" style={{ color: '#2563EB', marginTop: 2 }}>
+                    <ThemedText type="small" style={{ color: theme.primary, marginTop: 2 }}>
                       Phone: {customer.phone}
                     </ThemedText>
                   )}
@@ -255,7 +255,7 @@ export default function TransactionDetailScreen() {
           {transaction.discount > 0 && (
             <View style={styles.calcRow}>
               <ThemedText type="small" themeColor="textSecondary">Discount Applied</ThemedText>
-              <ThemedText style={[styles.calcVal, { color: '#10B981' }]}>
+              <ThemedText style={[styles.calcVal, { color: theme.success }]}>
                 - ₹{transaction.discount.toFixed(2)}
               </ThemedText>
             </View>
@@ -272,14 +272,14 @@ export default function TransactionDetailScreen() {
 
           <View style={styles.calcRow}>
             <ThemedText type="smallBold">Grand Total</ThemedText>
-            <ThemedText style={[styles.calcVal, { fontSize: 18, color: '#2563EB', fontWeight: '900' }]}>
+            <ThemedText style={[styles.calcVal, { fontSize: 18, color: theme.primary, fontWeight: '900' }]}>
               ₹{transaction.grandTotal.toFixed(2)}
             </ThemedText>
           </View>
 
           <View style={styles.calcRow}>
             <ThemedText type="smallBold">Amount Paid</ThemedText>
-            <ThemedText style={[styles.calcVal, { color: '#10B981', fontWeight: '700' }]}>
+            <ThemedText style={[styles.calcVal, { color: theme.success, fontWeight: '700' }]}>
               ₹{transaction.amountPaid.toFixed(2)}
             </ThemedText>
           </View>
@@ -294,8 +294,8 @@ export default function TransactionDetailScreen() {
           )}
 
           {balanceDue > 0 && (
-            <View style={[styles.dueBox, { backgroundColor: '#EF44441A' }]}>
-              <ThemedText style={{ color: '#EF4444', fontWeight: 'bold' }}>
+            <View style={[styles.dueBox, { backgroundColor: theme.danger + '1A' }]}>
+              <ThemedText style={{ color: theme.danger, fontWeight: 'bold' }}>
                 Unpaid Balance Due: ₹{balanceDue.toFixed(2)}
               </ThemedText>
             </View>

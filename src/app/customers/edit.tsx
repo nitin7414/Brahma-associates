@@ -17,10 +17,15 @@ import { SymbolView } from '@/components/symbol-view';
 import * as Haptics from 'expo-haptics';
 import { useCustomerStore, Customer } from '@/stores/useCustomerStore';
 import { useStockStore } from '@/stores/useStockStore';
+import { useTransactionStore } from '@/stores/useTransactionStore';
+import { useAuthStore } from '@/stores/useAuthStore';
+import { db } from '@/db/client';
+import { stockItems } from '@/db/schema';
+import { eq } from 'drizzle-orm';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Button, Input } from '@/components/ui/primitives';
-import { Spacing } from '@/constants/theme';
+import { Spacing, ListPaddingBottom } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function EditCustomerScreen() {
@@ -190,24 +195,126 @@ export default function EditCustomerScreen() {
       gstCharged: parsedGst,
     };
 
+    let shouldLogTransaction = false;
+    let existingCust: Customer | undefined;
+
     if (isEditMode && id) {
-      const success = await editCustomer(id, custData);
-      setIsLoading(false);
-      if (success) {
-        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-        router.replace('/customers');
-      } else {
-        Alert.alert('Error', 'Failed to update customer.');
+      existingCust = customersList.find(c => c.id === id);
+      if (
+        purchasedScaleName.trim() &&
+        parsedPrice !== null &&
+        parsedPrice > 0 &&
+        (!existingCust?.purchasedScaleName || !existingCust?.sellingPrice)
+      ) {
+        shouldLogTransaction = true;
       }
     } else {
-      const success = await addCustomer(custData);
-      setIsLoading(false);
-      if (success) {
-        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-        router.replace('/customers');
-      } else {
-        Alert.alert('Error', 'Failed to add customer.');
+      if (purchasedScaleName.trim() && parsedPrice !== null && parsedPrice > 0) {
+        shouldLogTransaction = true;
       }
+    }
+
+    let targetCustomerId: string | null = null;
+
+    if (isEditMode && id) {
+      const success = await editCustomer(id, custData);
+      if (success) {
+        targetCustomerId = id;
+      }
+    } else {
+      const newId = await addCustomer(custData);
+      if (newId) {
+        targetCustomerId = newId;
+      }
+    }
+
+    if (targetCustomerId) {
+      if (shouldLogTransaction) {
+        try {
+          const scaleNameTrimmed = purchasedScaleName.trim();
+          const priceNum = parsedPrice || 0;
+          const gstPercent = parsedGst || 0;
+          const gstAmount = priceNum * (gstPercent / 100);
+          const grandTotal = priceNum + gstAmount;
+
+          let stockItem = stockList.find(
+            s => s.name.toLowerCase() === scaleNameTrimmed.toLowerCase()
+          );
+
+          const now = Date.now();
+
+          if (!stockItem) {
+            const newStockItemId = `stock_${Date.now()}`;
+            const newStockItem = {
+              id: newStockItemId,
+              category: 'scale',
+              brand: null,
+              name: scaleNameTrimmed,
+              capacityLabel: model.trim() || null,
+              variant: null,
+              quantity: 1,
+              lowStockThreshold: 1,
+              costPrice: null,
+              sellingPrice: priceNum,
+              photoUri: null,
+              notes: `Auto-created during customer ${name.trim()} scale purchase entry.`,
+              isActive: 1,
+              isSynced: 0,
+              createdAt: now,
+              updatedAt: now,
+            };
+
+            await db.insert(stockItems).values(newStockItem).run();
+            await useStockStore.getState().loadStock();
+            stockItem = newStockItem as any;
+          } else {
+            if (stockItem.quantity < 1) {
+              await db.update(stockItems)
+                .set({ quantity: 1, updatedAt: now, isSynced: 0 })
+                .where(eq(stockItems.id, stockItem.id))
+                .run();
+              await useStockStore.getState().loadStock();
+            }
+          }
+
+          if (stockItem) {
+            const txSuccess = await useTransactionStore.getState().createTransaction({
+              type: 'sale',
+              customerId: targetCustomerId,
+              supplierName: null,
+              subtotal: priceNum,
+              discount: 0,
+              taxAmount: gstAmount,
+              grandTotal: grandTotal,
+              amountPaid: 0,
+              paymentMode: 'credit',
+              paymentStatus: 'pending',
+              createdByStaffId: useAuthStore.getState().currentUser?.id || null,
+              notes: `Auto-generated ledger entry for scale purchase: ${scaleNameTrimmed} (Model: ${model.trim() || 'N/A'}).`,
+              items: [
+                {
+                  stockItemId: stockItem.id,
+                  quantity: 1,
+                  unitPrice: priceNum,
+                },
+              ],
+            });
+
+            if (!txSuccess) {
+              console.error('[handleSave] Failed to auto-create transaction in store.');
+            }
+          }
+        } catch (txErr) {
+          console.error('[handleSave] Error creating auto-transaction for scale:', txErr);
+        }
+      }
+
+      setIsLoading(false);
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      router.replace('/customers');
+    } else {
+      setIsLoading(false);
+      Alert.alert('Error', isEditMode ? 'Failed to update customer.' : 'Failed to add customer.');
     }
   };
 
@@ -252,10 +359,10 @@ export default function EditCustomerScreen() {
               </TouchableOpacity>
               {photoUri && (
                 <TouchableOpacity
-                  style={[styles.photoBtn, { backgroundColor: '#EF444420' }]}
+                  style={[styles.photoBtn, { backgroundColor: theme.danger + '20' }]}
                   onPress={() => setPhotoUri(null)}
                 >
-                  <ThemedText type="small" style={{ color: '#EF4444', fontWeight: 'bold' }}>Remove</ThemedText>
+                  <ThemedText type="small" style={{ color: theme.danger, fontWeight: 'bold' }}>Remove</ThemedText>
                 </TouchableOpacity>
               )}
             </View>
@@ -417,7 +524,7 @@ export default function EditCustomerScreen() {
 
               {priceNum > 0 && gstPercent > 0 ? (
                 <View style={[styles.gstCalcBox, { backgroundColor: theme.backgroundSelected, borderColor: theme.backgroundSelected }]}>
-                  <ThemedText type="smallBold" style={{ color: '#2563EB', marginBottom: 4 }}>
+                  <ThemedText type="smallBold" style={{ color: theme.primary, marginBottom: 4 }}>
                     Live GST Calculation
                   </ThemedText>
                   <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 }}>
@@ -426,12 +533,12 @@ export default function EditCustomerScreen() {
                   </View>
                   <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 }}>
                     <ThemedText type="small" themeColor="textSecondary">GST Amount ({gstPercent}%):</ThemedText>
-                    <ThemedText type="small" style={{ fontWeight: '600', color: '#F59E0B' }}>+ ₹{gstAmount.toFixed(2)}</ThemedText>
+                    <ThemedText type="small" style={{ fontWeight: '600', color: theme.warning }}>+ ₹{gstAmount.toFixed(2)}</ThemedText>
                   </View>
                   <View style={{ height: 1, backgroundColor: 'rgba(0,0,0,0.05)', marginVertical: 6 }} />
                   <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                     <ThemedText type="smallBold">Total Amount (with GST):</ThemedText>
-                    <ThemedText type="smallBold" style={{ color: '#10B981', fontSize: 13 }}>₹{totalWithGst.toFixed(2)}</ThemedText>
+                    <ThemedText type="smallBold" style={{ color: theme.success, fontSize: 13 }}>₹{totalWithGst.toFixed(2)}</ThemedText>
                   </View>
                 </View>
               ) : null}
@@ -474,7 +581,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     padding: Spacing.four,
-    paddingBottom: 40,
+    paddingBottom: ListPaddingBottom,
   },
   pageTitle: {
     marginBottom: Spacing.four,

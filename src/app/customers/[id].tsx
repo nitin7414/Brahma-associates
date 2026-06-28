@@ -264,8 +264,8 @@ Please settle any pending dues. Thank you!`;
                 onPress={() => handleCall(customer.phone!)}
                 style={styles.contactRow}
               >
-                <SymbolView name={{ ios: 'phone.fill', android: 'call', web: 'phone' }} size={16} tintColor="#2563EB" />
-                <ThemedText type="small" style={styles.contactLinkText}>{customer.phone}</ThemedText>
+                <SymbolView name={{ ios: 'phone.fill', android: 'call', web: 'phone' }} size={16} tintColor={theme.primary} />
+                <ThemedText type="small" style={[styles.contactLinkText, { color: theme.primary }]}>{customer.phone}</ThemedText>
                 <ThemedText type="small" themeColor="textSecondary" style={styles.contactLabel}>(Primary)</ThemedText>
               </TouchableOpacity>
             )}
@@ -275,8 +275,8 @@ Please settle any pending dues. Thank you!`;
                 onPress={() => handleCall(customer.altPhone!)}
                 style={styles.contactRow}
               >
-                <SymbolView name={{ ios: 'phone.fill', android: 'call', web: 'phone' }} size={16} tintColor="#2563EB" />
-                <ThemedText type="small" style={styles.contactLinkText}>{customer.altPhone}</ThemedText>
+                <SymbolView name={{ ios: 'phone.fill', android: 'call', web: 'phone' }} size={16} tintColor={theme.primary} />
+                <ThemedText type="small" style={[styles.contactLinkText, { color: theme.primary }]}>{customer.altPhone}</ThemedText>
                 <ThemedText type="small" themeColor="textSecondary" style={styles.contactLabel}>(Alternate)</ThemedText>
               </TouchableOpacity>
             )}
@@ -286,8 +286,8 @@ Please settle any pending dues. Thank you!`;
                 onPress={() => handleOpenMaps(customer.address!)}
                 style={styles.contactRow}
               >
-                <SymbolView name={{ ios: 'mappin.and.ellipse', android: 'map', web: 'map' }} size={16} tintColor="#2563EB" />
-                <ThemedText type="small" style={[styles.contactLinkText, { flex: 1 }]}>
+                <SymbolView name={{ ios: 'mappin.and.ellipse', android: 'map', web: 'map' }} size={16} tintColor={theme.primary} />
+                <ThemedText type="small" style={[styles.contactLinkText, { flex: 1, color: theme.primary }]}>
                   {customer.address}
                 </ThemedText>
               </TouchableOpacity>
@@ -328,11 +328,11 @@ Please settle any pending dues. Thank you!`;
                 <>
                   <View style={styles.scaleDetailRow}>
                     <ThemedText type="small" themeColor="textSecondary" style={styles.scaleDetailLabel}>GST Tax Amount</ThemedText>
-                    <ThemedText style={[styles.scaleDetailValue, { color: '#F59E0B' }]}>₹{(customer.sellingPrice * (customer.gstCharged / 100)).toFixed(2)}</ThemedText>
+                    <ThemedText style={[styles.scaleDetailValue, { color: theme.warning }]}>₹{(customer.sellingPrice * (customer.gstCharged / 100)).toFixed(2)}</ThemedText>
                   </View>
                   <View style={[styles.scaleDetailRow, { borderBottomWidth: 0, marginTop: 4, paddingTop: 8, borderTopWidth: 1, borderColor: theme.backgroundSelected }]}>
                     <ThemedText type="smallBold" style={styles.scaleDetailLabel}>Total (with GST added)</ThemedText>
-                    <ThemedText style={[styles.scaleDetailValue, { color: '#10B981', fontSize: 16, fontWeight: '900' }]}>₹{(customer.sellingPrice * (1 + customer.gstCharged / 100)).toFixed(2)}</ThemedText>
+                    <ThemedText style={[styles.scaleDetailValue, { color: theme.success, fontSize: 16, fontWeight: '900' }]}>₹{(customer.sellingPrice * (1 + customer.gstCharged / 100)).toFixed(2)}</ThemedText>
                   </View>
                 </>
               )}
@@ -341,14 +341,14 @@ Please settle any pending dues. Thank you!`;
         ) : null}
 
         {/* Khata / Balance Card */}
-        <Card style={[styles.balanceCard, hasBalance && styles.borderWarning]}>
+        <Card style={[styles.balanceCard, hasBalance && { borderLeftColor: theme.warning }]}>
           <ThemedText style={styles.sectionTitle}>Credit Ledger (Khata)</ThemedText>
           <View style={styles.balanceDisplay}>
             <ThemedText type="small" themeColor="textSecondary">Outstanding Debt</ThemedText>
             <ThemedText 
               style={[
                 styles.balanceNumber,
-                hasBalance ? { color: '#F59E0B' } : { color: theme.textSecondary },
+                hasBalance ? { color: theme.warning } : { color: theme.textSecondary },
               ]}
             >
               ₹{customer.outstandingBalance.toFixed(2)}
@@ -358,7 +358,7 @@ Please settle any pending dues. Thank you!`;
           {hasBalance && (
             <View style={styles.balanceActionRow}>
               <TouchableOpacity
-                style={[styles.balanceActionBtn, styles.btnPay]}
+                style={[styles.balanceActionBtn, { backgroundColor: theme.success }]}
                 onPress={() => {
                   setRepayAmount(customer.outstandingBalance.toString());
                   setIsPayModalVisible(true);
@@ -369,7 +369,7 @@ Please settle any pending dues. Thank you!`;
               </TouchableOpacity>
 
               <TouchableOpacity
-                style={[styles.balanceActionBtn, styles.btnShare]}
+                style={[styles.balanceActionBtn, { backgroundColor: theme.warning }]}
                 onPress={handleShareStatement}
               >
                 <SymbolView name={{ ios: 'square.and.arrow.up', android: 'share', web: 'share' } as any} size={14} tintColor="#FFFFFF" />
@@ -441,7 +441,7 @@ Please settle any pending dues. Thank you!`;
                   style={[
                     styles.timelineCard,
                     { backgroundColor: theme.backgroundElement, borderColor: theme.backgroundSelected },
-                    isPayment && { borderLeftWidth: 4, borderLeftColor: '#10B981' }
+                    isPayment && { borderLeftWidth: 4, borderLeftColor: theme.success }
                   ]}
                 >
                   <View style={styles.timelineHeader}>
@@ -467,7 +467,7 @@ Please settle any pending dues. Thank you!`;
                       <ThemedText type="small" themeColor="textSecondary">
                         {isPayment ? 'Paid Amount' : 'Total Amount'}
                       </ThemedText>
-                      <ThemedText style={isPayment ? styles.timelinePaid : styles.timelineAmount}>
+                      <ThemedText style={[isPayment ? styles.timelinePaid : styles.timelineAmount, { color: isPayment ? theme.success : theme.primary }]}>
                         ₹{tx.grandTotal.toFixed(2)}
                       </ThemedText>
                     </View>
@@ -475,7 +475,7 @@ Please settle any pending dues. Thank you!`;
                     {!isPayment && (
                       <View style={{ alignItems: 'flex-end' }}>
                         <ThemedText type="small" themeColor="textSecondary">Paid Amount</ThemedText>
-                        <ThemedText style={styles.timelinePaid}>₹{tx.amountPaid.toFixed(2)}</ThemedText>
+                        <ThemedText style={[styles.timelinePaid, { color: theme.success }]}>₹{tx.amountPaid.toFixed(2)}</ThemedText>
                       </View>
                     )}
                   </View>
@@ -537,7 +537,7 @@ Please settle any pending dues. Thank you!`;
                     <ThemedText type="small" themeColor="textSecondary">
                       Outstanding Due Balance
                     </ThemedText>
-                    <ThemedText style={styles.dueInfoText}>
+                    <ThemedText style={[styles.dueInfoText, { color: theme.warning }]}>
                       ₹{customer.outstandingBalance.toFixed(2)}
                     </ThemedText>
                   </View>
@@ -691,7 +691,6 @@ const styles = StyleSheet.create({
     gap: Spacing.two,
   },
   contactLinkText: {
-    color: '#2563EB',
     fontWeight: '600',
   },
   contactLabel: {
@@ -701,9 +700,6 @@ const styles = StyleSheet.create({
     marginBottom: Spacing.three,
     borderLeftWidth: 4,
     borderLeftColor: 'transparent',
-  },
-  borderWarning: {
-    borderLeftColor: '#F59E0B',
   },
   sectionTitle: {
     fontSize: 13,
@@ -736,16 +732,10 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     gap: 6,
   },
-  btnShare: {
-    backgroundColor: '#F59E0B',
-  },
   shareText: {
     color: '#FFFFFF',
     fontWeight: '700',
     fontSize: 14,
-  },
-  btnPay: {
-    backgroundColor: '#10B981',
   },
   modalOverlay: {
     flex: 1,
@@ -788,7 +778,6 @@ const styles = StyleSheet.create({
   dueInfoText: {
     fontSize: 20,
     fontWeight: '800',
-    color: '#F59E0B',
     marginTop: 4,
   },
   modalLabel: {
@@ -883,13 +872,11 @@ const styles = StyleSheet.create({
   timelineAmount: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#2563EB',
     marginTop: 2,
   },
   timelinePaid: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#10B981',
     marginTop: 2,
   },
   scaleCard: {
