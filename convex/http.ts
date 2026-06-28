@@ -25,7 +25,7 @@ http.route({
 
     // 2. Authentication Check
     const authHeader = request.headers.get("Authorization");
-    const secret = process.env.SYNC_API_SECRET;
+    const secret = process.env.SYNC_API_SECRET || process.env.EXPO_PUBLIC_SYNC_API_KEY;
 
     if (!secret) {
       console.error("SYNC_API_SECRET is not defined on the Convex server!");
