@@ -61,7 +61,7 @@ const getInitialBackendUrl = (): string => {
   }
   return process.env.EXPO_PUBLIC_PROD_BACKEND_URL || 
          process.env.EXPO_PUBLIC_BACKEND_URL || 
-         'https://hardy-zebra-130.convex.site';
+         'https://ardent-trout-238.convex.site';
 };
 
 const defaultSettings: Settings = {
