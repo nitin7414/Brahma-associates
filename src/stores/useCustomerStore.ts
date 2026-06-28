@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { db } from '@/db/client';
 import { customers, transactions } from '@/db/schema';
 import { eq, desc } from 'drizzle-orm';
+import { syncWithCloud } from '@/lib/sync';
 
 export interface Customer {
   id: string;
@@ -81,6 +82,7 @@ export const useCustomerStore = create<CustomerState>((set, get) => ({
 
       await db.insert(customers).values(newCustomer).run();
       await get().loadCustomers();
+      syncWithCloud().catch((e) => console.error('[useCustomerStore] Auto sync error:', e));
       return id;
     } catch (error) {
       console.error('Failed to add customer:', error);
@@ -100,6 +102,7 @@ export const useCustomerStore = create<CustomerState>((set, get) => ({
         .where(eq(customers.id, id))
         .run();
       await get().loadCustomers();
+      syncWithCloud().catch((e) => console.error('[useCustomerStore] Auto sync error:', e));
       return true;
     } catch (error) {
       console.error('Failed to update customer:', error);
@@ -118,6 +121,7 @@ export const useCustomerStore = create<CustomerState>((set, get) => ({
         .where(eq(customers.id, id))
         .run();
       await get().loadCustomers();
+      syncWithCloud().catch((e) => console.error('[useCustomerStore] Auto sync error:', e));
       return true;
     } catch (error) {
       console.error('Failed to soft delete customer:', error);

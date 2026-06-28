@@ -83,10 +83,8 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
       const saved = await SecureStore.getItemAsync(SETTINGS_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Overwrite backend URL with the current dynamically resolved developer IP in dev mode
-        if (__DEV__) {
-          parsed.backendUrl = getInitialBackendUrl();
-        }
+        // Always force resolving the backend URL from code configurations to prevent loading outdated saved values
+        parsed.backendUrl = getInitialBackendUrl();
         console.log('[useSettingsStore] Loaded backendUrl:', parsed.backendUrl);
         set({ settings: { ...defaultSettings, ...parsed }, isLoading: false });
       } else {

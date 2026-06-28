@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { db } from '@/db/client';
 import { stockItems, transactionItems, transactions, customers } from '@/db/schema';
 import { eq, desc, and } from 'drizzle-orm';
+import { syncWithCloud } from '@/lib/sync';
 
 export interface StockItem {
   id: string;
@@ -76,6 +77,7 @@ export const useStockStore = create<StockState>((set, get) => ({
 
       await db.insert(stockItems).values(newItem).run();
       await get().loadStock();
+      syncWithCloud().catch((e) => console.error('[useStockStore] Auto sync error:', e));
       return true;
     } catch (error) {
       console.error('Failed to add stock item:', error);
@@ -95,6 +97,7 @@ export const useStockStore = create<StockState>((set, get) => ({
         .where(eq(stockItems.id, id))
         .run();
       await get().loadStock();
+      syncWithCloud().catch((e) => console.error('[useStockStore] Auto sync error:', e));
       return true;
     } catch (error) {
       console.error('Failed to update stock item:', error);
@@ -113,6 +116,7 @@ export const useStockStore = create<StockState>((set, get) => ({
         .where(eq(stockItems.id, id))
         .run();
       await get().loadStock();
+      syncWithCloud().catch((e) => console.error('[useStockStore] Auto sync error:', e));
       return true;
     } catch (error) {
       console.error('Failed to soft delete stock item:', error);

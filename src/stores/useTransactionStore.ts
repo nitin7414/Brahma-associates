@@ -4,6 +4,7 @@ import { transactions, transactionItems, stockItems, customers, deletedRecords }
 import { eq, desc } from 'drizzle-orm';
 import { useStockStore } from './useStockStore';
 import { useCustomerStore } from './useCustomerStore';
+import { syncWithCloud } from '@/lib/sync';
 
 export interface TransactionItemInput {
   stockItemId: string;
@@ -195,6 +196,7 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
       if (data.customerId) {
         useCustomerStore.getState().loadCustomers();
       }
+      syncWithCloud().catch((e) => console.error('[useTransactionStore] Auto sync error:', e));
 
       return { success: true };
     } catch (error: any) {
@@ -300,6 +302,7 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
       if (transaction.customerId) {
         useCustomerStore.getState().loadCustomers();
       }
+      syncWithCloud().catch((e) => console.error('[useTransactionStore] Auto sync error:', e));
 
       return true;
     } catch (error) {
@@ -358,6 +361,7 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
       // Reload lists
       await get().loadTransactions();
       useCustomerStore.getState().loadCustomers();
+      syncWithCloud().catch((e) => console.error('[useTransactionStore] Auto sync error:', e));
 
       return { success: true };
     } catch (error: any) {

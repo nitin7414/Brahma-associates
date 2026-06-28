@@ -2,6 +2,7 @@ import { openDatabaseSync } from 'expo-sqlite';
 import { drizzle } from 'drizzle-orm/expo-sqlite';
 import * as schema from './schema';
 import { seedInitialCatalog } from './seed';
+import * as SecureStore from 'expo-secure-store';
 
 const expoDb = openDatabaseSync('brahma_associates.db');
 export const db = drizzle(expoDb, { schema });
@@ -127,11 +128,20 @@ export async function initializeDatabase() {
         );
       `);
 
-      console.log('Database tables created successfully. Seeding initial catalog...');
-      await seedInitialCatalog(db);
+      console.log('Database tables created successfully. Seeding initial catalog skipped.');
+      // await seedInitialCatalog(db);
       console.log('Database seeding completed!');
     } else {
       console.log('Database tables already exist. Skipping initialization.');
+    }
+
+    // One-time migration to clear auto-seeded initial stock items so user starts from scratch
+    const hasCleanedStock = await SecureStore.getItemAsync('has_cleaned_initial_stock_v3');
+    if (!hasCleanedStock) {
+      console.log('[Migration] Cleaning initial stock items table for fresh start...');
+      expoDb.execSync('DELETE FROM stock_items;');
+      await SecureStore.setItemAsync('has_cleaned_initial_stock_v3', 'true');
+      console.log('[Migration] Cleaned initial stock items table!');
     }
 
     // Migration: ensure staff_users has updated_at column

@@ -144,3 +144,50 @@ export async function importDatabaseBackup(fileUri: string): Promise<{ success: 
     return { success: false, error: error.message || 'Error parsing backup file' };
   }
 }
+
+/**
+ * Creates a silent database backup in the background without launching sharing UI.
+ */
+export async function exportSilentBackup(): Promise<string | null> {
+  try {
+    const allStock = db.select().from(stockItems).all();
+    const allCustomers = db.select().from(customers).all();
+    const allTransactions = db.select().from(transactions).all();
+    const allItems = db.select().from(transactionItems).all();
+    const allStaff = db.select().from(staffUsers).all();
+
+    const backupPayload: BackupData = {
+      version: 1,
+      timestamp: Date.now(),
+      data: {
+        stockItems: allStock,
+        customers: allCustomers,
+        transactions: allTransactions,
+        transactionItems: allItems,
+        staffUsers: allStaff,
+      },
+    };
+
+    const dateStr = new Date().toISOString().split('T')[0];
+    const filename = `auto_backup_${dateStr}.json`;
+    const backupsDir = `${(FileSystem as any).documentDirectory}backups/`;
+    const fileUri = `${backupsDir}${filename}`;
+
+    // Ensure backups directory exists
+    const dirInfo = await FileSystem.getInfoAsync(backupsDir);
+    if (!dirInfo.exists) {
+      await FileSystem.makeDirectoryAsync(backupsDir, { intermediates: true });
+    }
+
+    await FileSystem.writeAsStringAsync(fileUri, JSON.stringify(backupPayload, null, 2), {
+      encoding: 'utf8',
+    });
+
+    await useSettingsStore.getState().updateBackupDate();
+    console.log('[AutoBackup] Silent backup created successfully at:', fileUri);
+    return fileUri;
+  } catch (error) {
+    console.error('[AutoBackup] Failed to run silent auto-backup:', error);
+    return null;
+  }
+}

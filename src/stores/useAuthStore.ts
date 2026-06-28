@@ -3,6 +3,7 @@ import { db } from '@/db/client';
 import { staffUsers } from '@/db/schema';
 import { eq } from 'drizzle-orm';
 import { sha256 } from '@/lib/crypto';
+import { syncWithCloud } from '@/lib/sync';
 
 export interface User {
   id: string;
@@ -73,6 +74,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
           .set({ pinHash: saltedHash, isSynced: 0, updatedAt: Date.now() })
           .where(eq(staffUsers.id, matchedUser.id))
           .run();
+        syncWithCloud().catch((e) => console.error('[useAuthStore] Auto sync error:', e));
         
         // Update local memory reference
         matchedUser.pinHash = saltedHash;
@@ -111,6 +113,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       await db.insert(staffUsers).values(newOwner).run();
       await get().initializeAuth();
       set({ currentUser: newOwner });
+      syncWithCloud().catch((e) => console.error('[useAuthStore] Auto sync error:', e));
       return true;
     } catch (error) {
       console.error('Failed to create owner account:', error);
@@ -137,6 +140,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
       await db.insert(staffUsers).values(newStaff).run();
       await get().initializeAuth();
+      syncWithCloud().catch((e) => console.error('[useAuthStore] Auto sync error:', e));
       return true;
     } catch (error) {
       console.error('Failed to add staff account:', error);
@@ -152,6 +156,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         .run();
 
       await get().initializeAuth();
+      syncWithCloud().catch((e) => console.error('[useAuthStore] Auto sync error:', e));
     } catch (error) {
       console.error('Failed to deactivate staff user:', error);
     }

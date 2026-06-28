@@ -18,6 +18,7 @@ import { useCustomerStore } from '@/stores/useCustomerStore';
 import { useTransactionStore } from '@/stores/useTransactionStore';
 import { useSettingsStore } from '@/stores/useSettingsStore';
 import { syncWithCloud } from '@/lib/sync';
+import { exportSilentBackup } from '@/lib/backup';
 import { ThemedText } from '@/components/themed-text';
 import { Card, Badge } from '@/components/ui/primitives';
 import { Spacing } from '@/constants/theme';
@@ -44,6 +45,14 @@ export default function DashboardScreen() {
 
   useEffect(() => {
     refreshData();
+    // Auto-backup in background if it's been more than 7 days
+    if (lastBackup === null || (daysSinceBackup !== null && daysSinceBackup >= 7)) {
+      exportSilentBackup()
+        .then((uri) => {
+          if (uri) console.log('[AutoBackup] Background backup completed!');
+        })
+        .catch((err) => console.error('[AutoBackup] Background backup error:', err));
+    }
   }, []);
 
   const refreshData = async () => {
@@ -209,31 +218,6 @@ export default function DashboardScreen() {
           <RefreshControl refreshing={refreshing} onRefresh={refreshData} colors={[theme.primary]} />
         }
       >
-        {/* Backup Reminder Banner */}
-        {needsBackupReminder && (
-          <TouchableOpacity
-            style={[styles.reminderBanner, { backgroundColor: theme.warning + '12', borderColor: theme.warning }]}
-            onPress={() => router.push('/more/backup')}
-            activeOpacity={0.8}
-          >
-            <View style={styles.reminderHeader}>
-              <SymbolView
-                name={{ ios: 'exclamationmark.triangle.fill', android: 'warning', web: 'warning' }}
-                size={18}
-                tintColor={theme.warning}
-              />
-              <ThemedText style={[styles.reminderTitle, { color: theme.warning }]}>
-                Data Safety Reminder
-              </ThemedText>
-            </View>
-            <ThemedText type="small" style={styles.reminderText} themeColor="textSecondary">
-              {lastBackup
-                ? `You haven't backed up in ${daysSinceBackup} days. Export a local JSON backup today to ensure your ledger is safe.`
-                : 'You have never backed up your shop data! Tap here to save a JSON backup now.'}
-            </ThemedText>
-          </TouchableOpacity>
-        )}
-
         {/* Quick Action Buttons */}
         <View style={styles.quickActions}>
           <TouchableOpacity
@@ -270,7 +254,7 @@ export default function DashboardScreen() {
                 <SymbolView name={{ ios: 'shippingbox.fill', android: 'inventory', web: 'inventory' }} size={16} tintColor={theme.primary} />
               </View>
               <ThemedText style={styles.metricValue}>{totalSKUs}</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary" style={styles.metricLabel}>Active SKUs</ThemedText>
+              <ThemedText type="small" themeColor="textSecondary" style={styles.metricLabel}>Total Stock Items</ThemedText>
             </View>
             
             <View style={[styles.metricBlock, { backgroundColor: theme.background, borderColor: theme.backgroundSelected }]}>
@@ -278,7 +262,7 @@ export default function DashboardScreen() {
                 <SymbolView name={{ ios: 'house.fill', android: 'home', web: 'home' }} size={16} tintColor={theme.success} />
               </View>
               <ThemedText style={styles.metricValue}>{totalUnits}</ThemedText>
-              <ThemedText type="small" themeColor="textSecondary" style={styles.metricLabel}>Stock Units</ThemedText>
+              <ThemedText type="small" themeColor="textSecondary" style={styles.metricLabel}>Total Units</ThemedText>
             </View>
 
             {isOwner && (

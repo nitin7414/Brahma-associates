@@ -126,33 +126,6 @@ export default function MoreMenuScreen() {
           </View>
         </Card>
 
-        {/* Cloud Sync Settings */}
-        <Card style={styles.themeCard}>
-          <ThemedText style={styles.sectionTitle}>Cloud Sync Settings</ThemedText>
-          <View style={styles.inputContainer}>
-            <ThemedText style={styles.settingName}>Backend Server URL</ThemedText>
-            <TextInput
-              style={[
-                styles.textInput,
-                { 
-                  color: theme.text, 
-                  borderColor: theme.backgroundSelected, 
-                  backgroundColor: theme.backgroundSelected + '20' 
-                }
-              ]}
-              value={settings.backendUrl}
-              onChangeText={(text) => updateSettings({ backendUrl: text })}
-              placeholder="e.g. http://192.168.1.100:3000"
-              placeholderTextColor={theme.textSecondary}
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="url"
-            />
-            <ThemedText type="small" themeColor="textSecondary" style={{ marginTop: 4 }}>
-              Enter the backend API server URL (e.g. http://10.0.2.2:3000 for Android emulator or a cloud hosting URL).
-            </ThemedText>
-          </View>
-        </Card>
 
         {/* Action Lists */}
         <ThemedText style={styles.listHeader}>Management Console</ThemedText>

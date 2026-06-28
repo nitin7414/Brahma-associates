@@ -52,6 +52,8 @@ export default function EditCustomerScreen() {
   const [gstCharged, setGstCharged] = useState('');
   
   const [isLoading, setIsLoading] = useState(false);
+  const [amountPaid, setAmountPaid] = useState('');
+  const [paymentMode, setPaymentMode] = useState<'cash' | 'upi' | 'bank' | 'credit'>('credit');
 
   // Live calculations
   const priceNum = parseFloat(sellingPrice) || 0;
@@ -278,6 +280,10 @@ export default function EditCustomerScreen() {
           }
 
           if (stockItem) {
+            const paidNum = amountPaid ? parseFloat(amountPaid) : 0;
+            const finalPaymentMode = paidNum === 0 ? 'credit' : paymentMode;
+            const finalPaymentStatus = paidNum === grandTotal ? 'paid' : (paidNum > 0 ? 'partial' : 'pending');
+
             const txSuccess = await useTransactionStore.getState().createTransaction({
               type: 'sale',
               customerId: targetCustomerId,
@@ -286,9 +292,9 @@ export default function EditCustomerScreen() {
               discount: 0,
               taxAmount: gstAmount,
               grandTotal: grandTotal,
-              amountPaid: 0,
-              paymentMode: 'credit',
-              paymentStatus: 'pending',
+              amountPaid: paidNum,
+              paymentMode: finalPaymentMode,
+              paymentStatus: finalPaymentStatus,
               createdByStaffId: useAuthStore.getState().currentUser?.id || null,
               notes: `Auto-generated ledger entry for scale purchase: ${scaleNameTrimmed} (Model: ${model.trim() || 'N/A'}).`,
               items: [
@@ -543,6 +549,92 @@ export default function EditCustomerScreen() {
                 </View>
               ) : null}
 
+              {purchasedScaleName.trim() && priceNum > 0 ? (
+                <View style={{ marginTop: 12, marginBottom: Spacing.three }}>
+                  <ThemedText type="smallBold" style={{ marginBottom: 8 }}>
+                    Payment Option
+                  </ThemedText>
+                  
+                  <View style={{ flexDirection: 'row', gap: Spacing.two, marginBottom: Spacing.two }}>
+                    <View style={{ flex: 1.5 }}>
+                      <Input
+                        label="Amount Paid (₹)"
+                        placeholder="e.g. 5000"
+                        keyboardType="numeric"
+                        value={amountPaid}
+                        onChangeText={(t) => {
+                          const val = t.replace(/[^0-9.]/g, '');
+                          if (parseFloat(val) > totalWithGst) {
+                            setAmountPaid(totalWithGst.toString());
+                          } else {
+                            setAmountPaid(val);
+                          }
+                        }}
+                      />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'flex-end', paddingBottom: 4 }}>
+                      <Button
+                        title="Fully Paid"
+                        variant="secondary"
+                        onPress={() => {
+                          setAmountPaid(totalWithGst.toString());
+                          if (paymentMode === 'credit') {
+                            setPaymentMode('cash');
+                          }
+                        }}
+                        style={{ height: 44 }}
+                      />
+                    </View>
+                  </View>
+
+                  {(parseFloat(amountPaid) || 0) > 0 ? (
+                    <View style={{ marginBottom: Spacing.two }}>
+                      <ThemedText type="small" themeColor="textSecondary" style={{ marginBottom: 6 }}>
+                        Payment Mode
+                      </ThemedText>
+                      <View style={{ flexDirection: 'row', gap: Spacing.one }}>
+                        {(['cash', 'upi', 'bank'] as const).map((mode) => (
+                          <TouchableOpacity
+                            key={mode}
+                            style={[
+                              styles.paymentModeBtn,
+                              {
+                                backgroundColor: paymentMode === mode ? theme.primary + '15' : theme.backgroundElement,
+                                borderColor: paymentMode === mode ? theme.primary : theme.backgroundSelected,
+                              }
+                            ]}
+                            onPress={() => setPaymentMode(mode)}
+                          >
+                            <ThemedText
+                              style={[
+                                styles.paymentModeText,
+                                { color: paymentMode === mode ? theme.primary : theme.text }
+                              ]}
+                            >
+                              {mode.toUpperCase()}
+                            </ThemedText>
+                          </TouchableOpacity>
+                        ))}
+                      </View>
+                    </View>
+                  ) : null}
+
+                  <View style={[styles.dueBox, { backgroundColor: theme.backgroundSelected, borderColor: theme.backgroundSelected }]}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                      <ThemedText type="small" themeColor="textSecondary">Due Amount:</ThemedText>
+                      <ThemedText
+                        type="smallBold"
+                        style={{
+                          color: (totalWithGst - (parseFloat(amountPaid) || 0)) > 0 ? theme.warning : theme.success
+                        }}
+                      >
+                        ₹{(totalWithGst - (parseFloat(amountPaid) || 0)).toFixed(2)}
+                      </ThemedText>
+                    </View>
+                  </View>
+                </View>
+              ) : null}
+
               <Input
                 label="Credit / Khata Notes"
                 placeholder="e.g. Credit terms 30 days, friendly client..."
@@ -675,5 +767,23 @@ const styles = StyleSheet.create({
   suggestionItem: {
     padding: Spacing.two,
     borderBottomWidth: 1,
+  },
+  paymentModeBtn: {
+    flex: 1,
+    paddingVertical: 10,
+    borderWidth: 1,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paymentModeText: {
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  dueBox: {
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: Spacing.two,
+    marginTop: Spacing.one,
   },
 });
