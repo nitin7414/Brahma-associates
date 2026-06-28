@@ -61,7 +61,7 @@ const getInitialBackendUrl = (): string => {
   }
   return process.env.EXPO_PUBLIC_PROD_BACKEND_URL || 
          process.env.EXPO_PUBLIC_BACKEND_URL || 
-         'https://brahma-associates-sync.vercel.app';
+         'https://hardy-zebra-130.convex.site';
 };
 
 const defaultSettings: Settings = {
