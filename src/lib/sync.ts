@@ -78,7 +78,7 @@ export async function syncWithCloud(): Promise<SyncResult> {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.EXPO_PUBLIC_SYNC_API_KEY || ''}`,
+        'Authorization': `Bearer ${process.env.EXPO_PUBLIC_SYNC_API_KEY || 'brahma_secure_sync_secret_token_2026_xyz'}`,
       },
       body: JSON.stringify(payload),
     });
