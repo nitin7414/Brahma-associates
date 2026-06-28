@@ -139,9 +139,17 @@ export async function initializeDatabase() {
     const hasCleanedStock = await SecureStore.getItemAsync('has_cleaned_initial_stock_v3');
     if (!hasCleanedStock) {
       console.log('[Migration] Cleaning initial stock items table for fresh start...');
-      expoDb.execSync('DELETE FROM stock_items;');
-      await SecureStore.setItemAsync('has_cleaned_initial_stock_v3', 'true');
-      console.log('[Migration] Cleaned initial stock items table!');
+      try {
+        expoDb.execSync('PRAGMA foreign_keys = OFF;');
+        expoDb.execSync('DELETE FROM transaction_items;');
+        expoDb.execSync('DELETE FROM transactions;');
+        expoDb.execSync('DELETE FROM stock_items;');
+        expoDb.execSync('PRAGMA foreign_keys = ON;');
+        await SecureStore.setItemAsync('has_cleaned_initial_stock_v3', 'true');
+        console.log('[Migration] Cleaned initial stock items table!');
+      } catch (err) {
+        console.error('[Migration] Failed to clean initial stock:', err);
+      }
     }
 
     // Migration: ensure staff_users has updated_at column
