@@ -9,6 +9,7 @@ export const staffUserValidator = v.object({
   isActive: v.float64(),
   createdAt: v.float64(),
   updatedAt: v.float64(),
+  isSynced: v.optional(v.union(v.float64(), v.boolean(), v.null())),
 });
 
 // Validator for Stock Items
@@ -28,6 +29,7 @@ export const stockItemValidator = v.object({
   isActive: v.float64(),
   createdAt: v.float64(),
   updatedAt: v.float64(),
+  isSynced: v.optional(v.union(v.float64(), v.boolean(), v.null())),
 });
 
 // Validator for Customers
@@ -49,6 +51,7 @@ export const customerValidator = v.object({
   isActive: v.float64(),
   createdAt: v.float64(),
   updatedAt: v.float64(),
+  isSynced: v.optional(v.union(v.float64(), v.boolean(), v.null())),
 });
 
 // Validator for Transaction Items
@@ -59,6 +62,7 @@ export const transactionItemValidator = v.object({
   quantity: v.float64(),
   unitPrice: v.float64(),
   lineTotal: v.float64(),
+  isSynced: v.optional(v.union(v.float64(), v.boolean(), v.null())),
 });
 
 // Validator for Transactions
@@ -78,4 +82,5 @@ export const transactionValidator = v.object({
   notes: v.union(v.string(), v.null()),
   createdAt: v.float64(),
   items: v.optional(v.array(transactionItemValidator)),
+  isSynced: v.optional(v.union(v.float64(), v.boolean(), v.null())),
 });
